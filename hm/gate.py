@@ -33,7 +33,7 @@ FILLER_BANNED = [
 # A number followed by a unit, typed directly in prose.
 UNSOURCED_FIGURE = re.compile(
     r"\d[\d,，.〜~\-–]*\s*(分|円|㎡|平米|室|km|ｍ|min|minutes|yen|m²|m(?![a-z²]))")
-CTA_LIMIT = {"property": 10, "comparison": 4, "article": 2, "hub": 2, "index": 2,
+CTA_LIMIT = {"property": 10, "comparison": 4, "article": 2, "hub": 2, "index": 8,
              "about": 0, "contact": 0}
 RELEASE_BANNED = ["data-hm-unset", "写真枠：", "photo--demo", 'class="preview', "preview-only", "TODO", "lorem",
                   "PENDING"]

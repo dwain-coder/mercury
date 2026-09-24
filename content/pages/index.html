@@ -3,7 +3,7 @@ id = "home"
 url = "/"
 type = "index"
 cluster = "hub"
-intent = "navigational"
+intent = "commercial"
 status = "published"
 updated = 2026-09-24
 alt_url = "/en/"
@@ -11,7 +11,25 @@ custom_head = true
 title = "浅草橋ホテルガイド — 浅草橋に泊まる人のための、宿・エリア・アクセスのガイド"
 h1 = "浅草橋ホテルガイド"
 nav_title = "トップ"
-description = "浅草橋ホテルガイドは、東京・台東区浅草橋の宿とエリアを独立した立場で紹介するガイドです。地図で街の位置関係を示し、宿の選び方、施設ガイド、空港からの行き方、街の歩き方をまとめています。"
+description = "浅草橋ホテルガイドは、東京・台東区浅草橋の宿とエリアを独立した立場で紹介するガイドです。地図で街の位置関係を示し、取り上げている宿の客室・チェックイン時間・空港からの行き方、街の歩き方をまとめています。"
+target_query = "浅草橋 泊まる"
+monetisation = "施設カード＋検索ウィジェット（Travelpayouts）"
+
+[[faq]]
+q = "浅草橋はどんな街？"
+a = "人形の老舗と、包装資材・店舗用品の問屋が集まる商いの街です。観光地ではありませんが、浅草・秋葉原・両国が電車ですぐの位置にあります。"
+
+[[faq]]
+q = "空港から乗り換えなしで行ける？"
+a = "都営浅草線は {{fact asakusabashi.airport_lines}} しています。直通列車なら浅草橋駅まで乗り換えはありません。すべての列車が直通するわけではないので、行き先を確かめてから乗ってください。"
+
+[[faq]]
+q = "このサイトで予約できる？"
+a = "できません。当サイトは宿泊施設の運営者ではなく、予約は提携する外部の予約サービスで行われます。"
+
+[[faq]]
+q = "掲載している数字はどこから？"
+a = "施設の公式サイトと予約ページ、鉄道各社、行事の主催者など、出典のある情報だけを使っています。各ページの数字には出典の番号が付いています。"
 +++
 
 <section class="atlas-hero">
@@ -21,6 +39,36 @@ description = "浅草橋ホテルガイドは、東京・台東区浅草橋の�
     <p class="atlas-hero__dek">駅、川、名所、そして宿。浅草橋がどこにあって、何が近いのかを、まず地図で。当サイトは宿泊施設の運営者ではない、独立したガイドです。</p>
   </header>
   {{atlas mode=wide caption="浅草橋とその周辺。番号は下の一覧と対応しています。"}}
+</section>
+
+<section class="sec" id="information">
+<p class="sec__k">Information</p>
+<h2>このガイドが取り上げている宿</h2>
+<p class="lead">浅草橋駅のすぐそばにある、シングル中心のビジネスホテル「Tabist ホテルマーキュリー 浅草橋」。都営浅草線は{{fact asakusabashi.airport_lines}}しており、羽田・成田のどちらからも乗り換えなしで着けるのが、この立地の最大の利点です。以下は公開されている施設情報から整理したもので、当サイトは宿泊して確かめた評価ではありません。</p>
+<p class="tmnote">当サイトは独立したガイドで、施設および運営会社とは関係がありません。「ホテルマーキュリー」は権利者の登録商標です。（<a href="/about/#trademarks">詳しく</a>）</p>
+
+<figure class="tbl">
+<figcaption>基本情報</figcaption>
+<div class="tablewrap"><table>
+<tbody>
+<tr><th>最寄り駅</th><td>{{fact hotel-mercury.access_toei}}<br>{{fact hotel-mercury.access_jr}}</td></tr>
+<tr><th>客室</th><td>{{fact hotel-mercury.rooms_total}}（{{fact hotel-mercury.room_breakdown}}）</td></tr>
+<tr><th>チェックイン／アウト</th><td>{{fact hotel-mercury.checkin}}／{{fact hotel-mercury.checkout}}</td></tr>
+<tr><th>空港から</th><td>羽田 {{fact hotel-mercury.time_haneda}}／成田 {{fact hotel-mercury.time_narita}}</td></tr>
+<tr><th>朝食</th><td>{{fact hotel-mercury.breakfast}}</td></tr>
+<tr><th>荷物</th><td>{{fact hotel-mercury.luggage}}</td></tr>
+<tr><th>駐車場</th><td>{{fact hotel-mercury.parking}}</td></tr>
+</tbody>
+</table></div>
+</figure>
+<p class="proph__cta">{{button hero label="空室と料金を見る"}}<a class="more" href="/hotel/hotel-mercury-asakusabashi/">施設ガイドを詳しく読む</a></p>
+</section>
+
+<section class="sec" id="book-row">
+<p class="sec__k">Book</p>
+<h2>日付を入れて、空室と料金を見る</h2>
+<p>表示される料金は日付によって大きく変わります。同じ部屋でも、平日と行事の日では別の値段になります。</p>
+{{widget title="浅草橋周辺の宿を日付で検索"}}
 </section>
 
 <section class="film film--home" id="hotel-film">
@@ -45,15 +93,74 @@ description = "浅草橋ホテルガイドは、東京・台東区浅草橋の�
 </details>
 </section>
 
+<section class="sec" id="guestroom">
+<p class="sec__k">Guestroom</p>
+<h2>客室 — 3タイプ</h2>
+<p class="lead">総数は{{fact hotel-mercury.rooms_total}}。内訳は{{fact hotel-mercury.room_breakdown}}で、シングルが大半を占めます。広さと人数で選びます。</p>
+
+<article class="room">
+  {{photo hm-single ratio="4/3"}}
+  <div class="room__body">
+    <h3>シングルルーム</h3>
+    <p class="room__spec">広さ {{fact hotel-mercury.single_size}}　／　1名</p>
+    <p>この宿の主力。ひとり旅と出張向けの構成です。</p>
+    <p class="room__act">{{button room-single label="シングルの空室を見る"}}</p>
+  </div>
+</article>
+
+<article class="room">
+  {{photo hm-double ratio="4/3"}}
+  <div class="room__body">
+    <h3>ダブルルーム</h3>
+    <p class="room__spec">広さ {{fact hotel-mercury.double_size}}　／　2名</p>
+    <p>ベッドをひとつにして2名で使うタイプ。室数が少なく、日付によっては空室が見つかりにくいことがあります。</p>
+    <p class="room__act">{{button room-double label="ダブルの空室を見る"}}</p>
+  </div>
+</article>
+
+<article class="room">
+  {{photo hm-twin ratio="4/3"}}
+  <div class="room__body">
+    <h3>ツインルーム</h3>
+    <p class="room__spec">広さ {{fact hotel-mercury.twin_size}}　／　2名</p>
+    <p>3タイプのなかで最も広い部屋。ベッドが分かれているので、友人同士や荷物の多い2名旅行に向いています。</p>
+    <p class="room__act">{{button room-twin label="ツインの空室を見る"}}</p>
+  </div>
+</article>
+<p class="more-row"><a href="/hotel/hotel-mercury-asakusabashi/#guestroom">設備と貸出品まで詳しく</a>　<a href="/guide/solo-asakusabashi/">ひとり旅・出張の泊まり方</a></p>
+</section>
+
+<section class="sec ground-cream" id="access-row">
+<p class="sec__k">Access</p>
+<h2>アクセス — 空港から乗り換えなし</h2>
+<p>浅草橋駅は2路線。空港へは都営浅草線、都内の移動にはJR総武線が使えます。</p>
+<figure class="tbl">
+<figcaption>主な場所からの所要時間（施設が案内する目安）</figcaption>
+<div class="tablewrap"><table>
+<thead><tr><th>出発地</th><th>目安</th><th>路線</th></tr></thead>
+<tbody>
+<tr><th>羽田空港</th><td>{{fact hotel-mercury.time_haneda}}</td><td>京急線から都営浅草線へ直通</td></tr>
+<tr><th>成田空港</th><td>{{fact hotel-mercury.time_narita}}</td><td>京成線から都営浅草線へ直通</td></tr>
+<tr><th>東京駅</th><td>{{fact hotel-mercury.time_tokyo}}</td><td>秋葉原でJR総武線に乗り換え</td></tr>
+<tr><th>新宿駅</th><td>{{fact hotel-mercury.time_shinjuku}}</td><td>JR総武線</td></tr>
+<tr><th>秋葉原駅</th><td>{{fact hotel-mercury.time_akihabara}}</td><td>JR総武線</td></tr>
+<tr><th>浅草</th><td>{{fact hotel-mercury.time_asakusa}}</td><td>都営浅草線</td></tr>
+</tbody>
+</table></div>
+<p class="tsrc">所要時間は乗り換えや待ち時間で変わります。当日の経路は乗換案内で確認してください。</p>
+</figure>
+{{diagram asakusa-line}}
+<p class="more-row"><a href="/access/late-arrival/">夜に着く日の泊まり方</a>　<a href="/hotel/hotel-mercury-asakusabashi/#arrival-planner">着陸時刻から、チェックインに間に合うか計算する</a></p>
+</section>
+
 <section class="mag ground-cream">
   <div class="mag__row mag__row--lead">
     <div class="mag__label"><p>STAY</p><h2>泊まる</h2></div>
     <div class="mag__body">
-      <p class="mag__dek">浅草橋の宿選びは、駅からの距離とチェックインの時間帯で決まります。比べる基準と、取り上げている宿の施設ガイド。</p>
+      <p class="mag__dek">浅草橋の宿選びは、駅からの距離とチェックインの時間帯で決まります。比べる基準と、となりの街との違い。</p>
       {{photo hm-exterior ratio="21/9"}}
-      {{pages ids="hotel-hub,guide-vs-asakusa"}}
+      {{pages ids="hotel-hub,guide-vs-asakusa,guide-vs-akihabara"}}
       <p class="more-row"><a href="/choose/">旅の目的から、泊まる街を選ぶ</a></p>
-      {{widget title="日付を入れて、浅草橋周辺の宿の空室と料金を見る"}}
     </div>
   </div>
 
@@ -74,7 +181,7 @@ description = "浅草橋ホテルガイドは、東京・台東区浅草橋の�
     <div class="mag__body">
       {{photo skytree-kuramaebashi ratio="21/9"}}
       <p class="mag__dek">柳橋から川沿いに浅草へ。一日の回り方も。</p>
-      {{pages ids="area-sumida,day-24h"}}
+      {{pages ids="area-sumida,day-24h,guide-one-day"}}
     </div>
   </div>
 
@@ -84,7 +191,6 @@ description = "浅草橋ホテルガイドは、東京・台東区浅草橋の�
       {{photo asakusabashi-east-gate ratio="21/9"}}
       <p class="mag__dek">羽田からも成田からも、乗り換えなし。</p>
       {{pages ids="access-haneda,access-narita,access-hub"}}
-      <p class="more-row"><a href="/hotel/hotel-mercury-asakusabashi/#arrival-planner">着陸時刻から、チェックインに間に合うか計算する</a></p>
     </div>
   </div>
 
@@ -93,10 +199,16 @@ description = "浅草橋ホテルガイドは、東京・台東区浅草橋の�
     <div class="mag__body">
       {{photo sanja-matsuri ratio="21/9"}}
       <p class="mag__dek">行事の時期は、宿が早く埋まります。</p>
-      {{pages ids="guide-events"}}
+      {{pages ids="guide-events,guide-hanabi-stay,guide-sanja-stay"}}
     </div>
   </div>
 
+</section>
+
+<section class="sec" id="faq">
+<p class="sec__k">FAQ</p>
+<h2>よくある質問</h2>
+{{faq}}
 </section>
 
 <section class="mag mag--book">
