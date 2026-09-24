@@ -340,11 +340,19 @@ class Renderer:
             f'{self.booking.button(page, placement, "空室と料金を見る", prop)}</p></section>'
         )
 
+    def share_image(self, page) -> str:
+        for key in page.meta.get("_photos_used", []):
+            p = self.photos.get(key)
+            if p and not p.get("demo"):
+                return p["src"]
+        return "/assets/img/share.png"
+
     def sc_photo(self, page, key, label="", ratio="", cls=""):
         """A licensed photo from content/photos.toml, or — in preview only — an empty slot.
         Every photo carries its credit and licence link: CC BY / BY-SA require attribution."""
         p = self.photos.get(key)
         if p:
+            page.meta.setdefault("_photos_used", []).append(key)
             w, h = p["width"], p["height"]
             small = p["src"].replace(".webp", "-700.webp")
             lic = (f'<a href="{html.escape(p["licence_url"])}" rel="license noopener" target="_blank">{html.escape(p["licence"])}</a>'
@@ -596,6 +604,8 @@ class Renderer:
 <meta property="og:description" content="{desc}">
 <meta property="og:url" content="{canonical}">
 <meta property="og:locale" content="{"ja_JP" if page.lang == "ja" else "en_US"}">
+<meta property="og:image" content="{self.cfg.get("base_url", "").rstrip("/")}{self.share_image(page)}">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
