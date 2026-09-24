@@ -42,9 +42,7 @@ class Booking:
     def url(self, page, placement: str) -> str:
         tpl = self.cfg.get("booking.url")
         if not tpl:
-            # Preview only: release refuses to build without booking.url (see build.py).
-            # "#book-unset" is inert and grep-able; it can never reach production.
-            return "#book-unset"
+            return ""      # see button(): the CTA falls back to the on-page search widget
         return tpl.replace("{subid}", attribution_key(page.id, placement))
 
     def widget_src(self, page, placement: str = "widget") -> str:
@@ -80,12 +78,23 @@ class Booking:
 
     # ---- components
 
+    # Where a CTA points when no deep link is configured yet: the Booking.com search widget
+    # on the hotel hub, which is live and carries the same marker. Preview only — the gate
+    # bans data-hm-unset, so a release build cannot ship one.
+    UNSET_HREF = "/hotel/#book"
+
     def button(self, page, placement: str, label: str, prop: str | None = "hotel-mercury",
                cls: str = "btn-book") -> str:
         ad = "広告" if page.lang == "ja" else "Ad"
+        href = self.url(page, placement)
+        # The fallback stays in the same tab (it is an in-page anchor, not an outbound link),
+        # but keeps rel="sponsored" so every CTA on the site is labelled identically.
+        link = ('target="_blank" rel="sponsored noopener"' if href
+                else 'rel="sponsored noopener" data-hm-unset="1"')
+        href = href or self.UNSET_HREF
         return (
-            f'<a class="{cls}" href="{html.escape(self.url(page, placement))}" '
-            f'target="_blank" rel="sponsored noopener" {self._attrs(page, placement, prop)}>'
+            f'<a class="{cls}" href="{html.escape(href)}" '
+            f'{link} {self._attrs(page, placement, prop)}>'
             f'<span>{label}</span><small class="adtag">{ad}</small></a>'
         )
 

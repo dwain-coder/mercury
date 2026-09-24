@@ -108,7 +108,7 @@ def test_release_requires_config_and_strips_placeholders():
         _, visible, _, errs = build.compile_site(release=True)
         assert not errs, errs
         for p in visible:
-            for bad in ("#book-unset", "写真枠", "preview", "PENDING"):
+            for bad in ("data-hm-unset", "写真枠", "preview", "PENDING"):
                 assert bad not in p.html, (p.id, bad)
         home = next(p for p in visible if p.url == "/")
         assert 'data-website-id="00000000' in home.html

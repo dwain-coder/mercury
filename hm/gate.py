@@ -35,7 +35,7 @@ UNSOURCED_FIGURE = re.compile(
     r"\d[\d,，.〜~\-–]*\s*(分|円|㎡|平米|室|km|ｍ|min|minutes|yen|m²|m(?![a-z²]))")
 CTA_LIMIT = {"property": 10, "comparison": 4, "article": 2, "hub": 2, "index": 2,
              "about": 0, "contact": 0}
-RELEASE_BANNED = ["#book-unset", "写真枠：", "photo--demo", 'class="preview', "preview-only", "TODO", "lorem",
+RELEASE_BANNED = ["data-hm-unset", "写真枠：", "photo--demo", 'class="preview', "preview-only", "TODO", "lorem",
                   "PENDING"]
 # The publication must never be identified by a property's name or mark. 「ホテルマーキュリー」
 # is a registered trademark (登録3130305, lodging); on this domain that matters doubly.
