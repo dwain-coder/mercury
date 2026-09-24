@@ -1,0 +1,200 @@
+# Places on the atlas. Coordinates are OpenStreetMap features (ODbL), retrieved 2026-09-24
+# with the Overpass API; `osm` is the feature id so any point can be re-checked or refreshed.
+# Walking figures shown on the site are COMPUTED from these coordinates (straight-line distance
+# ÷ 80 m/min, the Japanese real-estate advertising standard) and are labelled as such.
+#
+# kind: hotel | station | sight | shop | bridge
+# page: the article that covers the place, if any (links from the atlas legend)
+
+[hotel-mercury]
+name = "ホテルマーキュリー"
+kind = "hotel"
+lat = 35.69885
+lon = 139.78701
+osm = "node/4788544967"
+page = "/hotel/hotel-mercury-asakusabashi/"
+
+# ---- stations
+[st-asakusabashi-jr]
+name = "浅草橋（JR）"
+kind = "station"
+lat = 35.69741
+lon = 139.78468
+osm = "node/7865838637"
+page = "/access/"
+label = { anchor = "end", dx = -9, dy = 17 }
+
+[st-asakusabashi-toei]
+name = "浅草橋（都営 A16）"
+kind = "station"
+lat = 35.69739
+lon = 139.78631
+osm = "node/7791591075"
+page = "/access/"
+label = { anchor = "start", dx = 9, dy = 19 }
+
+[st-higashinihombashi]
+name = "東日本橋"
+kind = "station"
+lat = 35.69212
+lon = 139.78488
+osm = "node/7791591074"
+
+[st-kuramae]
+name = "蔵前"
+kind = "station"
+lat = 35.70321
+lon = 139.79094
+osm = "node/7791591076"
+
+[st-asakusa]
+name = "浅草（都営）"
+kind = "station"
+lat = 35.70896
+lon = 139.79657
+osm = "node/7791605886"
+page = "/guide/asakusabashi-vs-asakusa/"
+label = { anchor = "start", dx = 9, dy = -9 }
+
+[st-honjoazumabashi]
+name = "本所吾妻橋"
+kind = "station"
+lat = 35.70856
+lon = 139.80435
+osm = "node/7791605885"
+
+[st-akihabara]
+name = "秋葉原（JR）"
+kind = "station"
+lat = 35.69837
+lon = 139.77303
+osm = "node/6780109836"
+
+[st-ryogoku]
+name = "両国（JR）"
+kind = "station"
+lat = 35.69582
+lon = 139.79297
+osm = "node/2558121937"
+
+# ---- sights
+[kaminarimon]
+name = "雷門"
+kind = "sight"
+lat = 35.71113
+lon = 139.79637
+osm = "way/173154849"
+page = "/guide/asakusabashi-vs-asakusa/"
+
+[sensoji]
+name = "浅草寺"
+kind = "sight"
+lat = 35.71345
+lon = 139.79595
+osm = "way/173154847"
+page = "/guide/events/"
+
+[asakusajinja]
+name = "浅草神社"
+kind = "sight"
+lat = 35.71492
+lon = 139.79755
+osm = "way/92037459"
+page = "/guide/events/"
+
+[torigoe]
+name = "鳥越神社"
+kind = "sight"
+lat = 35.70204
+lon = 139.78558
+osm = "way/229969470"
+page = "/guide/events/"
+
+[kokugikan]
+name = "両国国技館"
+kind = "sight"
+lat = 35.69692
+lon = 139.79348
+osm = "way/76187058"
+
+[skytree]
+name = "東京スカイツリー"
+kind = "sight"
+lat = 35.71005
+lon = 139.81071
+osm = "way/288269147"
+
+# ---- shops
+[kyugetsu]
+name = "久月"
+kind = "shop"
+lat = 35.69763
+lon = 139.78679
+osm = "node/5174556089"
+page = "/area/asakusabashi/dolls/"
+
+[shimojima]
+name = "シモジマ"
+kind = "shop"
+lat = 35.69772
+lon = 139.78620
+osm = "node/5174556103"
+page = "/area/asakusabashi/wholesale/"
+
+# ---- bridges (south -> north)
+[br-ryogokubashi]
+name = "両国橋"
+kind = "bridge"
+lat = 35.69431
+lon = 139.78886
+osm = "way/553536165"
+
+[br-yanagibashi]
+name = "柳橋"
+kind = "bridge"
+lat = 35.69521
+lon = 139.78747
+osm = "way/43100780"
+page = "/area/asakusabashi/sumida-river/"
+
+[br-kuramaebashi]
+name = "蔵前橋"
+kind = "bridge"
+lat = 35.70093
+lon = 139.79350
+osm = "way/91689539"
+
+[br-umayabashi]
+name = "厩橋"
+kind = "bridge"
+lat = 35.70438
+lon = 139.79516
+osm = "way/585439311"
+
+[br-komagatabashi]
+name = "駒形橋"
+kind = "bridge"
+lat = 35.70827
+lon = 139.79740
+osm = "way/586942274"
+label = { anchor = "end", dx = -8, dy = 12 }
+
+[br-azumabashi]
+name = "吾妻橋"
+kind = "bridge"
+lat = 35.71011
+lon = 139.79893
+osm = "way/554057521"
+page = "/area/asakusabashi/sumida-river/"
+
+# Rail lines drawn as straight segments between station points, in running order. They show
+# which stations a line connects, not the track's exact path.
+[lines.jr-sobu]
+name = "JR総武線"
+color = "#f2c500"
+stations = ["st-akihabara", "st-asakusabashi-jr", "st-ryogoku"]
+
+[lines.toei-asakusa]
+name = "都営浅草線"
+color = "#e85298"
+stations = ["st-higashinihombashi", "st-asakusabashi-toei", "st-kuramae", "st-asakusa", "st-honjoazumabashi"]

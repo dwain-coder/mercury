@@ -1,0 +1,111 @@
++++
+id = "home"
+url = "/"
+type = "index"
+cluster = "hub"
+intent = "navigational"
+status = "published"
+updated = 2026-09-24
+alt_url = "/en/"
+custom_head = true
+title = "浅草橋ホテルガイド — 浅草橋に泊まる人のための、宿・エリア・アクセスのガイド"
+h1 = "浅草橋ホテルガイド"
+nav_title = "トップ"
+description = "浅草橋ホテルガイドは、東京・台東区浅草橋の宿とエリアを独立した立場で紹介するガイドです。地図で街の位置関係を示し、宿の選び方、施設ガイド、空港からの行き方、街の歩き方をまとめています。"
++++
+
+<section class="atlas-hero">
+  <header class="atlas-hero__head">
+    <p class="kicker">浅草橋 ／ 台東区</p>
+    <h1 class="atlas-hero__h">旅は、着く前から始まっている。</h1>
+    <p class="atlas-hero__dek">駅、川、名所、そして宿。浅草橋がどこにあって、何が近いのかを、まず地図で。当サイトは宿泊施設の運営者ではない、独立したガイドです。</p>
+  </header>
+  {{atlas mode=wide caption="浅草橋とその周辺。番号は下の一覧と対応しています。"}}
+</section>
+
+<section class="film film--home" id="hotel-film">
+<p class="sec__k">Film</p>
+<h2>泊まる前に、知っておくこと — ホテルマーキュリー浅草橋</h2>
+<figure class="film__fig">
+<video class="film__video" controls muted playsinline preload="metadata" width="1280" height="720"
+  poster="/assets/video/mercury-hotel-guide-poster.webp" aria-describedby="hotel-film-text">
+<source src="/assets/video/mercury-hotel-guide.mp4" type="video/mp4">
+</video>
+<figcaption>紙の切り抜きで作ったストップモーション（約30秒・音声なし）。数字はすべて施設の公式情報と予約ページから。施設の写真は使っていません。</figcaption>
+</figure>
+<details class="film__text" id="hotel-film-text"><summary>映像の内容を文章で読む</summary>
+<ol>
+<li>チェックイン {{fact hotel-mercury.checkin}}、チェックアウト {{fact hotel-mercury.checkout}}。遅い便なら到着時刻を先に確認。</li>
+<li>客室は{{fact hotel-mercury.rooms_total}}。シングル{{fact hotel-mercury.single_size}}、ダブル{{fact hotel-mercury.double_size}}、ツイン{{fact hotel-mercury.twin_size}}。内訳は{{fact hotel-mercury.room_breakdown}}。</li>
+<li>料金：{{fact hotel-mercury.single_from_price}}。平均料金ではありません。日付を入れて予約サイトで確認してください。</li>
+<li>季節：2月の節分会、3月・5月の節句、5月の三社祭、6月の鳥越祭、7月の隅田川花火。行事の時期は早めの予約を。</li>
+<li>立地：{{fact hotel-mercury.access_toei}}。{{fact hotel-mercury.parking}}。{{fact hotel-mercury.luggage}}。</li>
+</ol>
+<p class="more-row"><a href="/hotel/hotel-mercury-asakusabashi/">施設ガイドを詳しく読む</a></p>
+</details>
+</section>
+
+<section class="mag ground-cream">
+  <div class="mag__row mag__row--lead">
+    <div class="mag__label"><p>STAY</p><h2>泊まる</h2></div>
+    <div class="mag__body">
+      <p class="mag__dek">浅草橋の宿選びは、駅からの距離とチェックインの時間帯で決まります。比べる基準と、取り上げている宿の施設ガイド。</p>
+      {{photo hm-exterior ratio="21/9"}}
+      {{pages ids="hotel-hub,guide-vs-asakusa"}}
+      <p class="more-row"><a href="/choose/">旅の目的から、泊まる街を選ぶ</a></p>
+      {{widget title="日付を入れて、浅草橋周辺の宿の空室と料金を見る"}}
+    </div>
+  </div>
+
+  <div class="mag__row">
+    <div class="mag__label"><p>AREA</p><h2>街</h2></div>
+    <div class="mag__body">
+      {{photo hina-exhibit ratio="21/9"}}
+      <p class="mag__dek">人形の老舗と問屋が集まる、商いの街。</p>
+      {{pages ids="area-asakusabashi,area-dolls,area-wholesale"}}
+    </div>
+  </div>
+
+</section>
+
+<section class="mag">
+  <div class="mag__row">
+    <div class="mag__label"><p>WALK</p><h2>歩く</h2></div>
+    <div class="mag__body">
+      {{photo skytree-kuramaebashi ratio="21/9"}}
+      <p class="mag__dek">柳橋から川沿いに浅草へ。一日の回り方も。</p>
+      {{pages ids="area-sumida,day-24h"}}
+    </div>
+  </div>
+
+  <div class="mag__row">
+    <div class="mag__label"><p>ACCESS</p><h2>行く</h2></div>
+    <div class="mag__body">
+      {{photo asakusabashi-east-gate ratio="21/9"}}
+      <p class="mag__dek">羽田からも成田からも、乗り換えなし。</p>
+      {{pages ids="access-haneda,access-narita,access-hub"}}
+      <p class="more-row"><a href="/hotel/hotel-mercury-asakusabashi/#arrival-planner">着陸時刻から、チェックインに間に合うか計算する</a></p>
+    </div>
+  </div>
+
+  <div class="mag__row">
+    <div class="mag__label"><p>SEASON</p><h2>季節</h2></div>
+    <div class="mag__body">
+      {{photo sanja-matsuri ratio="21/9"}}
+      <p class="mag__dek">行事の時期は、宿が早く埋まります。</p>
+      {{pages ids="guide-events"}}
+    </div>
+  </div>
+
+</section>
+
+<section class="mag mag--book">
+  <div class="mag__row mag__row--book">
+    <div class="mag__label"><p>BOOK</p><h2>予約</h2></div>
+    <div class="mag__body">
+      <p class="mag__dek">泊まる場所が決まったら。当サイトが取り上げている宿の基本情報です。</p>
+      {{property hotel-mercury placement=related-hotel}}
+      <p class="more-row"><a href="/blog/">すべての記事を目的別に見る</a>　<a href="/en/" hreflang="en" lang="en">In English</a></p>
+    </div>
+  </div>
+</section>

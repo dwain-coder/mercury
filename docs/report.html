@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>hotelmercury.jp — build &amp; content plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600&display=swap">
+<style>
+  :root{
+    --ink:#16181d; --indigo:#1b2a4a; --indigo2:#2b3f6b; --vermilion:#c8443c;
+    --washi:#f7f4ee; --paper:#fffdfa; --sand:#e3dbcd; --muted:#6b6f76;
+    --serif:"Noto Serif JP",Georgia,serif; --sans:"Noto Sans JP",system-ui,sans-serif;
+  }
+  @page { size: A4; margin: 16mm 14mm 16mm 14mm; }
+  *{box-sizing:border-box}
+  body{font-family:var(--sans);color:var(--ink);font-size:10.5pt;line-height:1.7;margin:0;background:#fff}
+  h1,h2,h3,h4{font-family:var(--serif);line-height:1.35;letter-spacing:.01em}
+  h1{font-size:27pt;margin:0 0 6pt}
+  h2{font-size:16pt;margin:26pt 0 8pt;padding-bottom:5pt;border-bottom:2px solid var(--sand);break-after:avoid}
+  h3{font-size:12.5pt;margin:16pt 0 5pt;break-after:avoid}
+  h4{font-size:11pt;margin:12pt 0 3pt;break-after:avoid}
+  p{margin:0 0 8pt}
+  ul,ol{margin:0 0 9pt;padding-left:18pt}
+  li{margin-bottom:3pt}
+  code{font-family:"Cascadia Mono",Consolas,monospace;font-size:9pt;background:var(--washi);
+       padding:1px 4px;border-radius:3px;border:1px solid var(--sand)}
+  pre{font-family:"Cascadia Mono",Consolas,monospace;font-size:8.5pt;background:var(--washi);
+      border:1px solid var(--sand);border-left:3px solid var(--indigo);border-radius:4px;
+      padding:9pt 11pt;overflow:hidden;white-space:pre-wrap;margin:0 0 10pt}
+  table{border-collapse:collapse;width:100%;font-size:9pt;margin:0 0 11pt;break-inside:avoid}
+  th,td{border-bottom:1px solid var(--sand);padding:5pt 7pt;text-align:left;vertical-align:top}
+  thead th{background:var(--indigo);color:#fff;font-weight:500}
+  .cover{background:var(--indigo);color:#fff;padding:34pt 30pt;border-radius:8pt;margin-bottom:20pt}
+  .cover h1{color:#fff}
+  .cover .sub{font-size:12pt;opacity:.9;margin:0 0 16pt;font-family:var(--serif)}
+  .cover .meta{font-size:9pt;opacity:.78;line-height:1.9;margin:0}
+  .cover .rule{width:52pt;height:2px;background:var(--vermilion);margin:0 0 14pt}
+  .tag{display:inline-block;font-size:7.5pt;letter-spacing:.14em;text-transform:uppercase;
+       color:var(--vermilion);font-weight:700;margin-bottom:3pt}
+  .callout{background:var(--washi);border:1px solid var(--sand);border-left:3px solid var(--vermilion);
+           border-radius:0 5pt 5pt 0;padding:9pt 12pt;margin:0 0 11pt;font-size:9.5pt;break-inside:avoid}
+  .callout b{font-family:var(--serif)}
+  .shot{margin:0 0 12pt;break-inside:avoid}
+  .shot img{width:100%;border:1px solid var(--sand);border-radius:5pt;display:block}
+  .shot figcaption{font-size:8pt;color:var(--muted);margin-top:4pt}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:12pt}
+  .mob img{width:58%;margin:0 auto;display:block}
+  .kv{display:grid;grid-template-columns:repeat(3,1fr);gap:9pt;margin:0 0 12pt}
+  .kv div{background:var(--washi);border:1px solid var(--sand);border-radius:5pt;padding:9pt 11pt}
+  .kv b{display:block;font-family:var(--serif);font-size:16pt;color:var(--indigo2)}
+  .kv span{font-size:8.5pt;color:var(--muted)}
+  .page-break{break-before:page}
+  .foot{margin-top:22pt;padding-top:8pt;border-top:1px solid var(--sand);font-size:8pt;color:var(--muted)}
+  .ok{color:#1d6b4a;font-weight:700}
+  .warn{color:var(--vermilion);font-weight:700}
+</style>
+</head>
+<body>
+
+<section class="cover">
+  <div class="rule"></div>
+  <h1>hotelmercury.jp</h1>
+  <p class="sub">浅草橋ホテルガイド — build, structure, and the content plan that makes it a working booking-affiliate site</p>
+  <p class="meta">
+    Prepared for Jon Ng · 23 September 2026<br>
+    Local build, not yet deployed. Preview served from <code style="background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.3);color:#fff">dist/</code>.<br>
+    Source: <code style="background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.3);color:#fff">server-build/apps/hotelmercury/</code>
+  </p>
+</section>
+
+<h2>1. Summary</h2>
+<p><b>The domain is a good asset being used in a way that guarantees it cannot rank.</b> hotelmercury.jp
+currently serves a scraped copy of a hotel's old official website. That hotel is still trading under new
+management, with its own live official site. Google has one brand entity to attribute, and it does not
+attribute it to us.</p>
+<p>The rebuild keeps everything genuinely useful about the old site — the rooms, the access data, the
+neighbourhood — and drops every claim to <i>be</i> the hotel. It goes live as an independent Asakusabashi
+stay guide that reviews the property and books it through affiliate links. That is both the honest
+position and the only position with a ranking path.</p>
+
+<div class="kv">
+  <div><b>13</b><span>pages built, 178&nbsp;KB total</span></div>
+  <div><b>44</b><span>booking links, all from one code</span></div>
+  <div><b>0</b><span>databases, plugins, PHP processes</span></div>
+</div>
+
+<h2>2. What is wrong with the site today</h2>
+
+<h3>2.1 It is a Wayback Machine Downloader rip, and it shows</h3>
+<p>Only four pages on the live domain are real. <code>/access/</code>, <code>/areaguide/</code>,
+<code>/restaurant/</code> and <code>/page9596/</code> return the scraping vendor's own advertisement:</p>
+<pre>The DEMO version only includes 4 pages:
+http://hotelmercury.jp   /contact.html   /en.html   /guide.html
+Visit https://www.waybackmachinedownloader.com/... to buy a fully functioning site.</pre>
+<p>Google indexes those pages. Four of the site's eight URLs are an advert for a scraping tool.</p>
+
+<h3>2.2 It claims to be a business that someone else operates</h3>
+<p>The property trades today as <b>Tabist ホテルマーキュリー 浅草橋</b>, with a live official site at
+<b>hotelmercury.info</b> and listings on Jalan, Booking.com, Agoda, Trivago and Yahoo Travel. Our page
+still carries the title 「公式サイト」, the hotel's phone and fax numbers, and its
+<code>reserve@</code> address.</p>
+
+<h3>2.3 Every booking button sends the customer — and the commission — elsewhere</h3>
+<p>All reservation links point at <code>sec.489.jp/v3/...?group_id=41&amp;hotel_id=56</code>, the previous
+operator's own booking engine: plan list, member registration, my-page, cancellation, enquiry. Any booking
+made through the site today earns us nothing and creates an obligation we cannot honour.</p>
+
+<h3>2.4 Nothing to rank for</h3>
+<p>Eight brochure pages of duplicate text. The only keyword the site targets is the brand name, which is
+the one keyword it cannot win.</p>
+
+<div class="callout">
+<b>Consequence.</b> Stripping the identity claims is not a legal footnote added to the redesign — it is the
+redesign. Google's expired-domain and deceptive-identity policies target exactly this pattern. Fixing the
+design without fixing the identity would produce a prettier page with the same ceiling.
+</div>
+
+<h2 class="page-break">3. The position we are taking</h2>
+<table>
+<thead><tr><th style="width:30%">Decision</th><th>What it means in the build</th></tr></thead>
+<tbody>
+<tr><td><b>Independent guide</b>, not an official site</td><td>New brand 「浅草橋ホテルガイド」. Copy is third person throughout — "the hotel is…", never "our hotel". No 公式 anywhere in a title, heading or social preview.</td></tr>
+<tr><td><b>No contact impersonation</b></td><td>The hotel's phone, fax and email are gone. So are all member-area and reservation-engine links. We cannot take a booking, and the site says so.</td></tr>
+<tr><td><b>Disclosure on every page</b></td><td>Footer states we are not the operator and that booking buttons are affiliate links. Every CTA carries a 広告 label, which Japan's ステマ規制 requires.</td></tr>
+<tr><td><b>Keep what is useful</b></td><td>Room types, facilities, access times, area knowledge — all retained and rewritten, because that is what a traveller actually searches for.</td></tr>
+<tr><td><b>Monetise through Travelpayouts</b></td><td>Same account and marker as the shibuyahotel hotel pages, with its own per-property sub-marker.</td></tr>
+</tbody>
+</table>
+
+<h2>4. What has been built</h2>
+<p>A static site — no CMS, no database, no PHP. Fifteen HTML files generated from one Python script,
+copied to the server as plain files. It cannot be hacked through a plugin, it cannot go down because a
+database is busy, and it loads in well under a second.</p>
+
+<h3>4.1 Structure</h3>
+<p>The homepage is a single hotel page with anchored sections, in the same order as the shibuyahotel
+subdomain builds (hotelindigo, bookteabed, alldayplace):</p>
+<pre>/  →  hero
+      #information   the property, key facts table
+      #book          Booking.com search widget
+      #guestroom     3 room types, one booking button each
+      #restaurant    in-house dining + the neighbourhood's izakaya
+      #facility      what is in the building
+      #access        airports and major stations
+      (direct book card)
+      #sightseeing   distances to Asakusa, Skytree, Akihabara, Ryogoku
+      #shopping      the doll shops and the wholesale district
+      #faq           six questions, including "can I book here?" → no</pre>
+<p>Separate pages: <code>/area/</code> hub plus 8 articles, <code>/about/</code>, <code>/contact/</code>,
+<code>/en/</code>. There are no standalone room or access pages — that content lives on the one-pager, so
+the site never competes with itself for the same search.</p>
+
+<figure class="shot"><img src="shots/sec-hero.png" alt="Homepage hero">
+<figcaption>Hero. 藍 indigo ground, 朱 vermilion reserved exclusively for booking actions, Noto Serif JP headings. The wave pattern behind is 青海波.</figcaption></figure>
+
+<figure class="shot"><img src="shots/sec-information.png" alt="Information section">
+<figcaption>#information — the property in plain terms, then a facts table. Written as a review, not as a brochure.</figcaption></figure>
+
+<figure class="shot page-break"><img src="shots/sec-guestroom.png" alt="Guestroom section">
+<figcaption>#guestroom — three room blocks with alternating image sides, each with its own booking button, mirroring the per-room RESERVATION buttons on the shibuyahotel pages. Patterned boxes are image slots awaiting photography.</figcaption></figure>
+
+<figure class="shot"><img src="shots/sec-access.png" alt="Access section">
+<figcaption>#access — the airport table is the strongest commercial argument this property has, so it gets a full section rather than a footnote.</figcaption></figure>
+
+<figure class="shot page-break"><img src="shots/sec-sightseeing.png" alt="Sightseeing and shopping">
+<figcaption>#sightseeing and #shopping. The doll district and wholesale streets are what make Asakusabashi searchable; the official Tabist page does not use them at all.</figcaption></figure>
+
+<div class="two">
+  <figure class="shot"><img src="shots/area-article.png" alt="Area article">
+  <figcaption>An area article — the Sumida riverside walk, with a route table.</figcaption></figure>
+  <figure class="shot mob"><img src="shots/mobile-home.png" alt="Mobile view">
+  <figcaption>Mobile. A sticky booking bar appears after the first screen and hides near the footer.</figcaption></figure>
+</div>
+
+<h3>4.2 Booking wiring</h3>
+<p>Every booking link on the site is generated by one function, so a network change or a new tracking code
+is a one-line edit and no link can be added without its disclosure label.</p>
+<ul>
+<li><b>Deep link</b> — <code>booking.tpx.li/&lt;code&gt;</code>, 44 instances, every one carrying
+<code>rel="sponsored noopener"</code>, a 広告 badge, and a <code>sub_id</code> naming its position
+(<code>hero</code>, <code>rail</code>, <code>room-single</code>, <code>direct</code>, <code>faq</code>,
+<code>sticky</code>, <code>area-&lt;slug&gt;</code>, <code>en</code>). After launch those sub-IDs tell us
+which placement actually converts.</li>
+<li><b>Booking.com widget</b> — <code>trs=533368</code>, <code>promo_id=9240</code>,
+<code>campaign_id=84</code>, <code>shmarker=416241.HotelMercuryAsakusabashi</code>. Marker 416241 is your
+Travelpayouts marker, as on the other hotel pages; the sub-marker separates this property's earnings.</li>
+<li><b>Vertical RESERVATION rail</b> pinned to the right edge on desktop, replaced by the sticky bar on
+phones — the one CTA that is always on screen.</li>
+</ul>
+<p class="warn">Outstanding: the deep-link code is still the placeholder <code>PENDING-MERCURY</code>.
+Once the Travelpayouts link for this property exists, it drops into one line.</p>
+
+<h3>4.3 How the build protects itself</h3>
+<p>The generator refuses to produce a site that reintroduces the original problem. It fails the build if any
+page contains <code>489.jp</code>, <code>e-concierge</code>, the hotel's phone or fax number,
+<code>reserve@hotelmercury</code>, or the word 公式 in a title, heading or social preview.</p>
+<pre>$ python build.py
+built 13 pages -> dist
+booking links: 44
+clean: no banned identity strings</pre>
+<p>Someone editing the copy in six months cannot quietly put the site back into the position that broke it.</p>
+
+<h3>4.4 Files</h3>
+<table>
+<thead><tr><th style="width:28%">File</th><th>Role</th></tr></thead>
+<tbody>
+<tr><td><code>build.py</code></td><td>Layout, booking helpers, structured data, the safety guard</td></tr>
+<tr><td><code>content.py</code></td><td>All copy. Area articles are a list — adding one is a dict entry</td></tr>
+<tr><td><code>assets/css/site.css</code></td><td>The entire design. Colour and type tokens at the top</td></tr>
+<tr><td><code>assets/js/site.js</code></td><td>Mobile menu and sticky bar. 35 lines, no libraries</td></tr>
+<tr><td><code>dist/</code></td><td>Output — this is what gets copied to the server</td></tr>
+</tbody>
+</table>
+
+<h2 class="page-break">5. Images</h2>
+<p>Every image position is a labelled slot with a fixed aspect ratio, so photography drops in later without
+touching layout. For this local preview they render as a 青海波 wave pattern rather than grey boxes.</p>
+<p><b>The Travelpayouts photo route is closed.</b> Travelpayouts retired Hotellook; the lookup, hotel-photos
+and image-CDN endpoints all return 404 now, with or without an API token — the token itself is still valid,
+the flight endpoints answer normally. So the live site needs one of:</p>
+<ol>
+<li><b>Own photography</b> — Asakusabashi is a ten-minute walk end to end. An afternoon produces the doll
+shops, the wholesale streets, the river, the station exits. This is the option that also differentiates us
+from every OTA listing, which all use the same supplied hotel photos.</li>
+<li><b>Free-licence images</b> — Wikimedia Commons and similar, with attribution, for the area sections.</li>
+<li><b>The widget carries the room photos</b> — the Booking.com search box shows the property's own licensed
+imagery inside its frame, which covers "what does the room look like" without us hosting anything.</li>
+</ol>
+<p>Reusing the old site's photos is not an option: they are the hotel's property, and the point of this
+rebuild is to stop borrowing the hotel's identity.</p>
+
+<h2>6. The blog layer — how this becomes a site that ranks</h2>
+<p>The hotel page converts; it does not attract. Search traffic for a single budget property is small and
+owned by the OTAs. The traffic is in the <i>region</i>: people deciding where in Tokyo to stay, how to get
+in from the airport, what Asakusabashi even is. That is what the blog is for.</p>
+
+<h3>6.1 Where it sits</h3>
+<p><b>WordPress in a subdirectory: <code>hotelmercury.jp/blog/</code></b>, with the static one-pager staying
+at the root. A subdirectory keeps every article's authority on the same host as the money page. A subdomain
+splits it, which is why the shibuyahotel subdomain pages have no blog at all.</p>
+<p>Operationally that means one PHP pool and one database on the box, serving only <code>/blog/</code> —
+the homepage and area pages stay static files. If we would rather not run WordPress at all, the eight area
+articles already prove the alternative: they are static pages from the same generator, and adding a ninth is
+a dictionary entry. <b>Recommendation: start static, add WordPress when the publishing volume justifies a
+CMS or when someone other than us needs to post.</b></p>
+
+<h3>6.2 What to write — clusters, in priority order</h3>
+<table>
+<thead><tr><th style="width:26%">Cluster</th><th>Example targets</th><th style="width:20%">Why</th></tr></thead>
+<tbody>
+<tr><td><b>Stay-decision</b></td><td>浅草橋 ホテル 安い／駅近／浅草橋 vs 浅草 どっちに泊まる／浅草橋 一人旅 宿</td><td>Closest to booking intent. Two are already written.</td></tr>
+<tr><td><b>Airport &amp; transit</b></td><td>羽田空港 浅草橋 アクセス／成田 浅草橋 直通／深夜着 東京 泊まる</td><td>High volume, evergreen, and it is this property's genuine advantage.</td></tr>
+<tr><td><b>The district</b></td><td>浅草橋 人形 店／問屋街／ビーズ 浅草橋／シモジマ 本店</td><td>Low competition, strongly local, brings the craft and handmade audience.</td></tr>
+<tr><td><b>Walks &amp; itineraries</b></td><td>隅田川テラス 散歩／蔵前 カフェ／浅草橋 から 浅草 徒歩</td><td>Long dwell time, natural internal links to the stay pages.</td></tr>
+<tr><td><b>Events &amp; seasons</b></td><td>鳥越祭／三社祭 宿／隅田川花火 ホテル／雛人形 シーズン</td><td>Predictable annual spikes. Publish two months ahead, refresh yearly.</td></tr>
+<tr><td><b>Nearby comparisons</b></td><td>秋葉原／上野／両国／蔵前 に泊まる</td><td>Captures searchers who have not yet chosen a neighbourhood.</td></tr>
+<tr><td><b>English</b></td><td>where to stay in Tokyo near Narita express／Asakusabashi guide</td><td>Inbound traffic monetises through Booking.com/Agoda at higher rates.</td></tr>
+</tbody>
+</table>
+
+<h3>6.3 The post template</h3>
+<p>Every article follows the same shape, already implemented in the eight built pages: a lede that answers
+the question in two sentences, two to four sections with a real table or list, a practical tip box, one
+booking block, and three related links. The booking block is generated, never pasted, so the
+<code>rel="sponsored"</code> attribute and the 広告 label cannot be forgotten.</p>
+<p>Cadence that works without risking a spam signal: <b>4–8 substantial posts a month</b>, each genuinely
+useful, rather than a bulk import. Volume on a freshly cleaned expired domain is the one thing we know
+triggers trouble.</p>
+
+<h3>6.4 How the blog feeds the booking</h3>
+<ul>
+<li>Every area article links into <code>/#guestroom</code> and <code>/#access</code> — the money sections.</li>
+<li>Every article ends with a booking block tagged <code>area-&lt;slug&gt;</code>, so we can see which
+<i>topic</i> produces bookings, not just which button.</li>
+<li>The hotel one-pager links out to the articles, so the internal graph runs both directions and the
+homepage is not a dead end.</li>
+</ul>
+
+<h2 class="page-break">7. Getting it live</h2>
+<ol>
+<li><b>Travelpayouts code</b> for this property; drop it into <code>BOOKING["url"]</code>.</li>
+<li><b>Photography</b> — at minimum the hero, the exterior and the three room slots.</li>
+<li><b>Hestia site</b> on the box, static nginx template, www alias removed, Cloudflare-proxied record and
+Origin certificate, once the domain is pointed at our Cloudflare.</li>
+<li><b>Copy <code>dist/</code></b> into the docroot. There is nothing else to install.</li>
+<li><b>Redirects</b>, preferably as a Cloudflare rule rather than server config:
+<code>/guide/ → /#guestroom</code>, <code>/areaguide/ → /area/</code>,
+<code>/restaurant/ → /#restaurant</code>, <code>/access/ → /#access</code>; and <b>410 Gone</b> for
+<code>/page9596/</code>, <code>/_templates/*</code>, <code>/_administrator/*</code> — the scraper's demo
+pages need to leave the index, not redirect into it.</li>
+<li><b>Search Console + Bing</b> property for the domain, fresh sitemap submitted, then watch which of the
+area clusters moves first and write more of that one.</li>
+</ol>
+
+<h2>8. Risks worth stating plainly</h2>
+<table>
+<thead><tr><th style="width:32%">Risk</th><th>Mitigation in this build</th></tr></thead>
+<tbody>
+<tr><td>Google still associates the domain with the hotel's old official site</td><td>New brand, new title, no 公式 claim, disclosure page, area-first content. We are asking to rank for 浅草橋 queries, not for the hotel's name.</td></tr>
+<tr><td>Expired-domain abuse signal</td><td>The site is substantively different from what the domain used to host, and useful in its own right. The thing policies punish is reusing a domain's history to float thin content; the area guide is the opposite of thin.</td></tr>
+<tr><td>Publishing volume outrunning quality</td><td>No bulk imports. Measured cadence, original writing, per-post review before publishing.</td></tr>
+<tr><td>Hotel or Tabist objects to the page</td><td>Nothing claims affiliation, the disclosure is explicit, and no contact details of theirs appear. We send them bookings.</td></tr>
+<tr><td>Affiliate programme rules</td><td>Every link is labelled 広告 and marked <code>rel="sponsored"</code> at generation time, satisfying both Google and the Japanese disclosure requirement.</td></tr>
+</tbody>
+</table>
+
+<h2>9. Open items before launch</h2>
+<ul>
+<li><b>Travelpayouts deep link</b> for this property — the one value the whole build is waiting on.
+Sub-marker is set to <code>416241.HotelMercuryAsakusabashi</code>; say if you want it named differently.</li>
+<li><b>Photography</b> — shoot the area, licence it, or launch with area-only imagery and let the widget
+carry the room photos. My preference is a half-day shoot, since it is also what makes us look different
+from every OTA listing.</li>
+<li><b>Site name</b> — 「浅草橋ホテルガイド」 is what is in the build now. Easy to change before the logo
+and about page are final.</li>
+<li><b>Blog ownership</b> — if your team will be posting, we add WordPress at <code>/blog/</code>; if it
+stays with me, the static generator is faster and safer. This is the only decision that changes the stack.</li>
+<li><b>DNS</b> — point the domain at our Cloudflare and I will have it live the same day.</li>
+</ul>
+
+<p class="foot">Local build, 23 September 2026. Preview: <code>python build.py &amp;&amp; python -m http.server 8787 --directory dist</code> from
+<code>server-build/apps/hotelmercury/</code>. Screenshots in this document are of that build; image areas
+shown as patterned panels are the slots awaiting photography.</p>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+# Documented attributes for "泊まる街を選ぶ" (/choose/). The recommendation is nothing more
+# than these attributes matched against what the reader selects — the page shows the whole
+# table and the arithmetic, so a reader can check every point.
+#
+# Only attributes with a source are here. Price level, quietness, safety and "atmosphere" are
+# deliberately absent: there is no documented measure behind them, so they are not scored.
+#
+# traits are keyed; each trait names the source that documents it for that area.
+
+[traits]
+temple      = "寺社・下町の観光"
+wholesale   = "問屋街での買い物"
+dolls       = "人形の専門店"
+hobby       = "電気街・ホビー"
+crafts      = "ものづくり・雑貨の店"
+sumo        = "相撲（国技館）"
+museums     = "美術館・博物館・公園"
+riverside   = "隅田川沿いの散歩"
+
+[area.asakusabashi]
+name = "浅草橋"
+lines = ["JR総武線", "都営浅草線"]
+lines_source = ["jreast", "toei-subway"]
+haneda_direct = true
+narita_direct = true
+airport_source = "tokyo-np-asakusa-line"
+traits = { dolls = "kyugetsu", wholesale = "shimojima", riverside = "osm" }
+page = "/area/asakusabashi/"
+hotels = ["hotel-mercury"]
+
+[area.asakusa]
+name = "浅草"
+lines = ["東京メトロ銀座線", "都営浅草線", "東武スカイツリーライン", "つくばエクスプレス"]
+lines_source = ["tokyometro", "toei-subway", "tobu", "tsukuba-express"]
+haneda_direct = true
+narita_direct = true
+airport_source = "tokyo-np-asakusa-line"
+traits = { temple = "sensoji", riverside = "osm" }
+page = "/guide/asakusabashi-vs-asakusa/"
+hotels = []
+
+[area.kuramae]
+name = "蔵前"
+lines = ["都営浅草線", "都営大江戸線"]
+lines_source = ["toei-subway"]
+haneda_direct = true
+narita_direct = true
+airport_source = "tokyo-np-asakusa-line"
+traits = { crafts = "taito-city", riverside = "osm" }
+hotels = []
+
+[area.ryogoku]
+name = "両国"
+lines = ["JR総武線", "都営大江戸線"]
+lines_source = ["jreast", "toei-subway"]
+haneda_direct = false
+narita_direct = false
+airport_source = "tokyo-np-asakusa-line"
+traits = { sumo = "sumo-kyokai", riverside = "osm" }
+hotels = []
+
+[area.akihabara]
+name = "秋葉原"
+lines = ["JR山手線", "JR京浜東北線", "JR総武線", "東京メトロ日比谷線", "つくばエクスプレス"]
+lines_source = ["jreast", "tokyometro", "tsukuba-express"]
+haneda_direct = false
+narita_direct = false
+airport_source = "tokyo-np-asakusa-line"
+traits = { hobby = "chiyoda-city" }
+hotels = []
+
+[area.ueno]
+name = "上野"
+lines = ["JR山手線", "JR京浜東北線", "JR宇都宮線・高崎線・常磐線", "東京メトロ銀座線", "東京メトロ日比谷線", "京成線（京成上野）"]
+lines_source = ["jreast", "tokyometro", "keisei"]
+haneda_direct = false
+narita_direct = true
+airport_source = "keisei"
+traits = { museums = "taito-city" }
+hotels = []

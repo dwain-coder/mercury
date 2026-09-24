@@ -1,0 +1,7 @@
+.git
+dist
+reports
+.env.local
+**/__pycache__
+capture
+img

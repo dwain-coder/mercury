@@ -1,0 +1,11 @@
+# Area: 浅草橋. Same fact rules as properties — quote with {{fact asakusabashi.<key>}}.
+
+id = "asakusabashi"
+name = "浅草橋"
+name_en = "Asakusabashi"
+page = "/area/asakusabashi/"
+ward = "台東区"
+
+[facts]
+toei_station  = { value = "都営浅草線 浅草橋駅（A16）", source = "toei-a16-timetable" }
+airport_lines = { value = "京急線（羽田空港方面）・京成線（成田空港方面）と相互直通運転", source = "tokyo-np-asakusa-line" }

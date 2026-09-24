@@ -1,0 +1,69 @@
+# Property: Tabist ホテルマーキュリー 浅草橋
+#
+# Every fact names its source (content/sources.toml). Pages quote facts with
+# {{fact hotel-mercury.<key>}} — never by retyping the value — so a correction here corrects
+# every page, and the gate can prove no page states a figure without a source.
+#
+# Facts from `mercury-archive` describe the property under its previous operation. They are
+# shown only with that caveat and never as current fact.
+
+id = "hotel-mercury"
+name = "Tabist ホテルマーキュリー 浅草橋"
+short = "ホテルマーキュリー"
+name_en = "Tabist Hotel Mercury Asakusabashi"
+page = "/hotel/hotel-mercury-asakusabashi/" # the property's guide page on this site
+official_url = "https://www.hotelmercury.info/"
+address = "東京都台東区浅草橋2-1-9"
+postal_code = "111-0053"
+locality = "台東区"
+region = "東京都"
+area = "asakusabashi"
+
+[facts]
+rooms_total      = { value = "全56室", source = "tabist-mercury" }
+room_breakdown   = { value = "シングル44室・ダブル6室・ツイン6室", source = "mercury-archive", note = "旧運営時の内訳。総数56室は現行の予約ページと一致" }
+single_size      = { value = "約10〜11㎡", source = "mercury-official" }
+double_size      = { value = "約14㎡", source = "mercury-official" }
+twin_size        = { value = "約24㎡", source = "mercury-official" }
+checkin          = { value = "15:00〜23:00", source = "tabist-mercury" }
+checkout         = { value = "10:00", source = "tabist-mercury" }
+parking          = { value = "駐車場なし（近隣のコインパーキングを案内）", source = "tabist-mercury" }
+smoking          = { value = "禁煙室と喫煙室の両方あり", source = "tabist-mercury" }
+wifi             = { value = "全室で無料Wi-Fi", source = "tabist-mercury" }
+breakfast        = { value = "館内の「大戸屋ごはん処」で朝食（朝食付きプランの場合）", source = "tabist-mercury" }
+single_from_price = { value = "シングル8,000円〜（日によって変動）", source = "mercury-official", note = "公式サイトに表示された最低料金の目安。平均料金ではない" }
+breakfast_price  = { value = "素泊まりプランに＋600円（ドリンクバー付き）", source = "mercury-official" }
+luggage          = { value = "チェックイン前・チェックアウト後の荷物預かり（無料）", source = "mercury-official" }
+lobby            = { value = "自動販売機、電子レンジ、コーヒーマシン", source = "tabist-mercury" }
+services         = { value = "ランドリー・クリーニング、モーニングコール", source = "tabist-mercury" }
+room_equipment   = { value = "テレビ、冷蔵庫、電気ケトル、歯ブラシ・シャンプー等のアメニティ、スリッパ、バスローブ", source = "tabist-mercury" }
+loans            = { value = "ズボンプレッサー、デスクライト、アイロン、加湿器、携帯電話の充電器、爪切り", source = "tabist-mercury" }
+access_toei      = { value = "都営浅草線 浅草橋駅 A4出口から徒歩1分", source = "mercury-official" }
+access_jr        = { value = "JR総武線 浅草橋駅 東口から徒歩2分", source = "mercury-official" }
+time_haneda      = { value = "約40分", source = "mercury-official", note = "施設が案内する目安" }
+time_narita      = { value = "約70分", source = "mercury-official", note = "施設が案内する目安" }
+time_tokyo       = { value = "約15分", source = "mercury-official", note = "施設が案内する目安" }
+time_shinjuku    = { value = "約20分", source = "mercury-official", note = "施設が案内する目安" }
+time_ueno        = { value = "約15分", source = "mercury-official", note = "施設が案内する目安" }
+time_akihabara   = { value = "約5分", source = "mercury-official", note = "施設が案内する目安" }
+time_asakusa     = { value = "約5分", source = "mercury-official", note = "施設が案内する目安" }
+time_tokyodome   = { value = "約10分", source = "mercury-official", note = "施設が案内する目安" }
+front_basement   = { value = "フロントは地階（らせん階段の先）", source = "mercury-archive", note = "旧運営時の案内。現行の公開情報では確認できない" }
+
+# English renderings for /en/. Same sources; kept as separate facts so the English page never
+# retypes a figure.
+access_toei_en     = { value = "1 min walk from exit A4, Toei Asakusa Line Asakusabashi Station", source = "mercury-official" }
+access_jr_en       = { value = "2 min walk from the East Exit, JR Sobu Line Asakusabashi Station", source = "mercury-official" }
+rooms_total_en     = { value = "56 rooms", source = "tabist-mercury" }
+room_breakdown_en  = { value = "44 singles, 6 doubles, 6 twins", source = "mercury-archive", note = "breakdown from the previous operator's listing; the 56 total matches the current booking page" }
+single_size_en     = { value = "about 10–11 m²", source = "mercury-official" }
+double_size_en     = { value = "about 14 m²", source = "mercury-official" }
+twin_size_en       = { value = "about 24 m²", source = "mercury-official" }
+checkin_en         = { value = "15:00–23:00", source = "tabist-mercury" }
+checkout_en        = { value = "10:00", source = "tabist-mercury" }
+time_haneda_en     = { value = "about 40 min", source = "mercury-official", note = "the property's own estimate" }
+time_narita_en     = { value = "about 70 min", source = "mercury-official", note = "the property's own estimate" }
+time_asakusa_en    = { value = "about 5 min", source = "mercury-official", note = "the property's own estimate" }
+breakfast_en       = { value = "breakfast at Ootoya, the set-meal restaurant in the building, on breakfast plans", source = "tabist-mercury" }
+luggage_en         = { value = "free luggage storage before check-in and after check-out", source = "mercury-official" }
+parking_en         = { value = "no parking on site", source = "tabist-mercury" }

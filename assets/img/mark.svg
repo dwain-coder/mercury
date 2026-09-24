@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- 浅草橋ホテルガイド mark: a bridge arch over the river (浅草橋 = "the bridge"), and the
+       vermilion square the atlas uses for the stay. Strokes use currentColor, so the mark
+       takes the ground's ink: cream on night, indigo on cream. -->
+  <path d="M9 40 Q32 6 55 40" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+  <path d="M5 40 H59" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+  <path d="M13 49 H27 M37 49 H51" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" opacity=".6"/>
+  <path d="M20 56 H44" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" opacity=".35"/>
+  <rect x="27.5" y="29" width="9" height="9" fill="#b53a2c"/>
+</svg>

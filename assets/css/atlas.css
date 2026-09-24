@@ -1,0 +1,260 @@
+/* 浅草橋ホテルガイド — atlas, magazine, basecamp, choose, 24 hours.
+   Loaded after site.css. Same rules: hairlines, ink, paper; colour only where it means
+   something (rail operators' colours, vermilion for booking). */
+
+/* =================================================================== atlas
+   A printed city atlas: paper ground, water as a flat tint, ink type, hairline rings. */
+
+.atlas { margin: 1.4em 0 2em; }
+.atlas__map { border-top: 2px solid var(--rule-2); border-bottom: 1px solid var(--rule); background: #f6f3ec; }
+.atlas__svg { display: block; width: 100%; height: auto; font-family: var(--sans); }
+.a-water { fill: none; stroke: #cfdde3; stroke-linecap: round; stroke-linejoin: round; }
+.a-river { font-family: var(--serif); font-size: 15px; fill: #7c97a2; letter-spacing: .5em; }
+.a-ring { fill: none; stroke: var(--indigo); stroke-width: 1; stroke-dasharray: 3 5; opacity: .55; }
+.a-ringlabel { font-size: 12px; fill: var(--indigo); font-weight: 700; }
+.a-case { fill: none; stroke: #f6f3ec; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+.a-line { fill: none; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+.a-st circle { fill: #fff; stroke: var(--ink); stroke-width: 2; }
+.a-st text { font-size: 12.5px; fill: var(--ink); paint-order: stroke; stroke: #f6f3ec; stroke-width: 4px; }
+.a-br circle { fill: #7c97a2; }
+.a-br text { font-size: 10.5px; fill: #5f7a85; paint-order: stroke; stroke: #f6f3ec; stroke-width: 3px; }
+.a-pin { cursor: pointer; }
+.a-pin circle { fill: #fff; stroke: var(--indigo); stroke-width: 2; transition: fill .15s; }
+.a-pin text { font-size: 11px; font-weight: 700; fill: var(--indigo); text-anchor: middle; pointer-events: none; }
+.a-shop circle { stroke: var(--ink); }
+.a-shop text { fill: var(--ink); }
+.a-pin.is-on circle { fill: var(--indigo); }
+.a-pin.is-on text { fill: #fff; }
+.a-hotel rect { fill: var(--ink); }
+.a-hotel text { font-size: 11px; font-weight: 700; fill: #fff; text-anchor: middle; }
+.a-hotel .a-hotellabel { fill: var(--ink); text-anchor: start; font-size: 13px; paint-order: stroke; stroke: #f6f3ec; stroke-width: 4px; }
+.a-scale path { stroke: var(--ink); stroke-width: 2; fill: none; }
+.a-scale text, .a-attr { font-size: 11px; fill: var(--muted); }
+.a-north path { fill: var(--ink); }
+.a-north text { font-size: 10px; text-anchor: middle; fill: var(--ink); }
+.atlas--near .a-st text { font-size: 11px; }
+.atlas__cap { font-size: 13px; color: var(--ink-2); padding: 8px 0 0; }
+.atlas__legend { list-style: none; padding: 0; margin: 10px 0 0; columns: 3 220px; column-gap: 28px; font-size: 13.5px; }
+.atlas__legend li { break-inside: avoid; display: grid; grid-template-columns: 1.6em 1fr; gap: 0 6px;
+  padding: 5px 0; border-bottom: 1px dotted var(--rule); margin: 0; }
+.atlas__legend b { color: var(--indigo); font-size: 12px; }
+.atlas__legend span { grid-column: 2; font-size: 12px; color: var(--muted); }
+.atlas__legend li.is-on, .atlas__legend li.is-on a { color: var(--indigo); }
+.atlas__note { font-size: 12px; color: var(--muted); margin: 10px 0 0; max-width: 60em; }
+
+/* Rail lines draw once as the map scrolls into view — CSS only, where supported. */
+@supports (animation-timeline: view()) {
+  .atlas--wide .a-line { stroke-dasharray: 1400; stroke-dashoffset: 1400;
+    animation: a-draw linear both; animation-timeline: view(); animation-range: entry 10% cover 40%; }
+  @keyframes a-draw { to { stroke-dashoffset: 0; } }
+}
+@media (prefers-reduced-motion: reduce) {
+  .atlas--wide .a-line { animation: none; stroke-dashoffset: 0; }
+}
+
+/* =================================================================== home */
+
+.atlas-hero__head { max-width: 40em; padding: 26px 0 0; }
+.atlas-hero__h { font-size: clamp(22px, 3vw, 30px); margin: .2em 0 .3em; }
+.atlas-hero__dek { color: var(--ink-2); font-size: 15px; }
+.mag { margin-top: 1em; }
+.mag__row { display: grid; grid-template-columns: 11em minmax(0, 1fr); gap: 0 40px;
+  border-top: 2px solid var(--rule-2); padding: 18px 0 8px; }
+.mag__label p { font-size: 11px; letter-spacing: .28em; color: var(--muted); margin: 2px 0 0; }
+.mag__label h2 { border: 0; padding: 0; margin: 2px 0 0; font-size: 26px; }
+.mag__dek { color: var(--ink-2); margin: 0 0 6px; font-size: 15px; }
+.mag__body .idx { border-top: 0; }
+.mag__row--book { background: #fff; border-top-color: var(--verm); padding: 18px 20px 12px; margin-top: 16px; }
+
+/* =================================================================== basecamp */
+
+.bc { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0; margin: 1em 0 .6em;
+  border-top: 2px solid var(--rule-2); }
+.bc__band { padding: 12px 18px 10px 0; border-bottom: 1px solid var(--rule); }
+.bc__band + .bc__band { padding-left: 18px; border-left: 1px solid var(--rule); }
+.bc__h { font-weight: 700; font-size: 13px; letter-spacing: .08em; margin: 0 0 6px; color: var(--indigo); }
+.bc__band--train .bc__h { color: var(--ink); }
+.bc ul { list-style: none; padding: 0; margin: 0; font-size: 14px; }
+.bc li { margin: 0; padding: 4px 0; }
+.bc li span { display: block; font-size: 12px; color: var(--muted); }
+.bc__note { font-size: 12px; color: var(--muted); }
+
+/* =================================================================== choose */
+
+.choose fieldset { border: 0; border-top: 2px solid var(--rule-2); margin: 0 0 18px; padding: 12px 0 0; }
+.choose legend { font-family: var(--serif); font-weight: 600; font-size: 17px; padding: 0 0 6px;
+  display: flex; gap: 10px; align-items: baseline; }
+.choose legend b { font-family: var(--sans); font-size: 12px; color: var(--indigo); letter-spacing: .1em; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { position: relative; }
+.chip input { position: absolute; opacity: 0; }
+.chip span { display: inline-block; padding: 7px 14px; border: 1px solid #bdb5a6; font-size: 14px; background: #fff; cursor: pointer; }
+.chip input:checked + span { background: var(--ink); color: #fff; border-color: var(--ink); }
+.chip input:focus-visible + span { outline: 2px solid var(--indigo); outline-offset: 2px; }
+.chip--off span { color: var(--muted); background: transparent; border-style: dashed; cursor: not-allowed; }
+.choose__why { font-size: 12.5px; color: var(--muted); margin: 8px 0 0; }
+.choose__out { border: 1px solid var(--rule-2); background: #fff; padding: 18px 22px; margin: 6px 0 24px; }
+.choose__k { font-size: 13px; color: var(--ink-2); margin: 0; }
+.choose__h { border: 0; padding: 0; margin: 2px 0 10px; font-size: 30px; }
+.choose__rank { list-style: none; padding: 0; margin: 0 0 16px; counter-reset: r; }
+.choose__rank > li { counter-increment: r; border-top: 1px solid var(--rule); padding: 8px 0; margin: 0; }
+.choose__row { display: flex; gap: 14px; align-items: baseline; flex-wrap: wrap; }
+.choose__row::before { content: counter(r); font-size: 12px; color: var(--muted); width: 1.2em; }
+.choose__name { font-family: var(--serif); font-weight: 600; font-size: 17px; }
+.choose__pts { font-size: 13px; color: var(--indigo); font-weight: 700; }
+.choose__row a { font-size: 13px; }
+.choose__why-list { list-style: none; padding: 0 0 0 1.9em; margin: 2px 0 0; font-size: 12.5px; color: var(--ink-2);
+  display: flex; flex-wrap: wrap; gap: 2px 14px; }
+.choose__why-list b { color: var(--indigo); margin-right: 4px; }
+.choose__why-list .none { color: var(--muted); }
+
+/* =================================================================== 24 hours
+   Each hour carries its own light: pale dawn, paper noon, warm dusk, ink night.
+   Backgrounds do the work — no script, no canvas. */
+
+.day .layout { display: block; }
+.day .side { display: none; }
+.day .prose { max-width: none; }
+.hour { --bg: var(--paper); --fg: var(--ink); --soft: var(--ink-2);
+  background: var(--bg); color: var(--fg);
+  margin-inline: calc(50% - 50vw); padding: 44px max(16px, calc(50vw - 560px));
+  display: grid; grid-template-columns: 9em minmax(0, 40em); gap: 0 40px; }
+/* The sky over one day. Each hour hands its colour to the next inside its own bottom padding
+   (--next), so the page reads as light changing continuously — and no text ever sits on a
+   blend, because content ends before the padding starts. */
+.hour { --blend: 110px; padding-bottom: calc(44px + var(--blend));
+  background: linear-gradient(in oklab to bottom, var(--bg) calc(100% - var(--blend)), var(--next) 100%); }
+.hour[data-tod="predawn"]         { --bg: #2f3552; --next: #e7c3b1; --accent: #f0b49c; --fg: #f3efe6; --soft: #d3d1d8; }
+.hour[data-tod="dawn"]            { --bg: #e7c3b1; --next: #dfe7ee; --accent: #8e3b24; }
+.hour[data-tod="morning"]         { --bg: #dfe7ee; --next: #e9eef0; --accent: #2c4f73; }
+.hour[data-tod="late-morning"]    { --bg: #e9eef0; --next: #faf7ef; --accent: #2c4f73; }
+.hour[data-tod="noon"]            { --bg: #faf7ef; --next: #f6efe0; --accent: #7a5a1f; }
+.hour[data-tod="early-afternoon"] { --bg: #f6efe0; --next: #efdcbb; --accent: #7a5a1f; }
+.hour[data-tod="afternoon"]       { --bg: #efdcbb; --next: #e2a676; --accent: #7c4a18; }
+.hour[data-tod="dusk"]            { --bg: #e2a676; --next: #2b3144; --accent: #6e2a12; }
+.hour[data-tod="evening"]         { --bg: #2b3144; --next: #171b27; --accent: #bcc8ea; --fg: #f1ede4; --soft: #c9c6bf; }
+.hour[data-tod="night"]           { --bg: #171b27; --next: #171b27; --accent: #e9c58a; --fg: #f1ede4; --soft: #b9b6ae; }
+.hour__t time { color: var(--accent); }
+/* the page head already sits on night; let it flow into the blue hour instead of meeting it */
+.day main > .wrap:first-child { padding-bottom: 8px; }
+.hour__t { margin: 0; position: sticky; top: 20px; align-self: start; }
+.hour__t time { font-family: var(--serif); font-size: clamp(30px, 5vw, 48px); font-weight: 500;
+  letter-spacing: .04em; font-variant-numeric: tabular-nums; }
+.hour__b h2 { border-top-color: currentColor; margin-top: 0; }
+.hour__b p { color: var(--soft); }
+.hour a { color: inherit; }
+.hour .book { color: var(--ink); }
+.hour .diagram { border-color: rgba(127, 127, 127, .35); }
+.hour .bridges li span { color: var(--soft); }
+.day .related, .day .sources { max-width: 46em; }
+
+@media (max-width: 767px) {
+  .atlas__legend { columns: 1; }
+  .mag__row { grid-template-columns: 1fr; }
+  .mag__label h2 { font-size: 22px; margin-bottom: 6px; }
+  .bc__band + .bc__band { padding-left: 0; border-left: 0; }
+  .hour { grid-template-columns: 1fr; padding-block: 32px; }
+  .hour__t { position: static; }
+}
+
+/* =================================================================== photos
+   The figure keeps its natural height so the caption and credit are never clipped; a
+   ratio, when given, crops the image itself. */
+.photo { aspect-ratio: auto; overflow: visible; background: none; margin: 1.8em 0; }
+.photo img { width: 100%; height: auto; aspect-ratio: var(--ratio, auto); object-fit: cover; background: var(--wash); }
+.photo figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 14px;
+  font-size: 12px; color: var(--ink-2); padding-top: 6px; }
+.photo .credit { color: var(--muted); font-size: 11px; margin: 0; }
+.photo .credit a { color: var(--muted); }
+.photo--slot { aspect-ratio: var(--ratio, 16/9); }
+.photo-pair { display: grid; grid-template-columns: 2fr 3fr; gap: 16px; align-items: end; }
+.photo-pair .photo { margin: 1.6em 0; }
+.mag__body .photo { margin: 4px 0 12px; }
+.hour .photo figcaption, .hour .photo .credit, .hour .photo .credit a { color: var(--soft); }
+@media (max-width: 767px) { .photo-pair { grid-template-columns: 1fr; } }
+
+/* =================================================================== grounds
+   Night is the default ground. `.ground-cream` is a full-bleed cream section that fades in
+   from night and back out to night, in OKLab with an eased curve so the blend reads as light
+   changing rather than a grey band. Content is padded past the fade, so no text ever sits on
+   the blend. */
+
+html { overflow-x: clip; }
+.ground-cream {
+  --in:  linear-gradient(in oklab to bottom, var(--night) 0,
+           color-mix(in oklab, var(--night) 62%, var(--cream)) calc(var(--fade) * .3),
+           color-mix(in oklab, var(--night) 22%, var(--cream)) calc(var(--fade) * .62),
+           var(--cream) var(--fade));
+  margin-inline: calc(50% - 50vw);
+  padding-inline: max(16px, calc(50vw - 560px));
+  padding-block: calc(var(--fade) + 6px);
+  background:
+    linear-gradient(in oklab to top, var(--night) 0,
+      color-mix(in oklab, var(--night) 62%, var(--cream)) calc(var(--fade) * .3),
+      color-mix(in oklab, var(--night) 22%, var(--cream)) calc(var(--fade) * .62),
+      transparent var(--fade)) bottom / 100% var(--fade) no-repeat,
+    var(--in) top / 100% calc(100% - var(--fade)) no-repeat,
+    var(--cream);
+  background-color: var(--cream);
+}
+.ground-cream > :first-child { margin-top: 0; }
+.ground-cream.ground-cream--end { padding-bottom: 40px;
+  background: var(--in) top / 100% 100% no-repeat, var(--cream); }
+
+/* the printed map is a paper sheet on either ground */
+.atlas__map { background: #f6f3ec; border-top-color: var(--rule-2); }
+.atlas-hero { padding-bottom: 12px; }
+.atlas-hero .kicker, .t-property .proph .kicker { color: var(--indigo); }
+
+/* footer: night, one step deeper, so the page visibly closes */
+.foot { background: var(--night-deep); border-top: 0; margin-top: 0; padding: 34px 0 24px; }
+.foot__legal { border-top-color: var(--rule); }
+
+/* sheets keep their white face */
+.book, .propcard, .choose__out, .form { background: var(--sheet); }
+.stickybook { background: var(--sheet); border-top-color: #1b1b1b; }
+.mag__row--book { background: transparent; border-top-color: var(--verm); }
+
+/* 24 hours keeps its own light; the page ground around it is night */
+.day main { background: var(--night); }
+
+@media (max-width: 767px) {
+  :root { --fade: 64px; }
+  .ground-cream { padding-inline: 16px; }
+}
+
+/* Booking buttons are always white on vermilion, whatever section they sit in. Declared last
+   so no contextual `a { color: … }` rule (24h hours, night bands) can reach them. */
+a.btn-book, a.btn-book:visited, a.btn-book:hover, .rail, .rail:hover { color: #fff; }
+a.btn-book .adtag { border-color: rgba(255, 255, 255, .75); color: #fff; }
+
+/* a booking sheet inside a night hour keeps its own ink, not the hour's soft light text */
+.hour .book :is(p, li) { color: var(--ink-2); }
+.hour .book .book__h { color: var(--ink); }
+.hour .book .book__disc { color: var(--muted); }
+
+/* logo mark */
+.mast__name { align-items: center; }
+.mast__mark { width: 44px; height: 44px; flex: 0 0 44px; color: var(--ink); margin-right: 2px; }
+@media (max-width: 767px) { .mast__mark { width: 34px; height: 34px; flex-basis: 34px; } }
+
+/* stop-motion film on the hotel page */
+.film__fig { margin: 1.2em 0 .6em; }
+.film__video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #f6f3ec; }
+.film__fig figcaption { font-size: 12.5px; color: var(--muted); padding-top: 8px; max-width: 60em; }
+.film__text { font-size: 14px; color: var(--ink-2); margin: 0 0 1em; }
+.film__text summary { cursor: pointer; color: var(--indigo); font-size: 13.5px; }
+.film__text ol { margin: 10px 0 0; }
+
+/* ---------- demo photography (stamped, unlicensed — release gate blocks these) ---------- */
+.photo--demo { position: relative; }
+/* shown whole, not cropped: the stamp burned along the bottom edge must stay readable */
+.photo--demo img { object-fit: contain; background: #20242f;
+  outline: 1px solid rgba(181, 58, 44, .55); outline-offset: -1px; }
+.photo--demo figcaption { color: var(--muted); }
+/* the burned-in banner can be clipped by the ratio crop; this label never is */
+.photo--demo::before { content: "参考画像 / REFERENCE ONLY"; position: absolute; z-index: 2; top: 0; left: 0;
+  background: var(--verm); color: #fff; font-size: 11px; letter-spacing: .1em; padding: 5px 10px; }
+.photo--half { display: inline-block; width: calc(50% - 10px); vertical-align: top; }
+.photo--half + .photo--half { margin-left: 16px; }
+@media (max-width: 767px) { .photo--half, .photo--half + .photo--half { width: 100%; margin-left: 0; } }

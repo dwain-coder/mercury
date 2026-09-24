@@ -1,0 +1,177 @@
+# Photo slots -> files. Every entry carries its licence and source; see tools/commons.py.
+
+[kiyochika-1881]
+src = "/assets/img/cc/kiyochika-1881.webp"
+alt = "小林清親の木版画。浅草橋から見た両国橋付近の大火（1881年）"
+caption = "小林清親「両国大火浅草橋」1881年（ロサンゼルス・カウンティ美術館所蔵）"
+credit = "写真：Kobayashi Kiyochika (Japan, 1847-1915)／Public domain（Wikimedia Commons）"
+licence = "Public domain"
+licence_url = ""
+source = "https://commons.wikimedia.org/wiki/File:The_Great_Fire_at_Ryogoku_Bridge,_Viewed_from_Asakusa_Bridge_on_the_26th_of_January,_1881_LACMA_M.71.100.50.jpg"
+width = 1400
+height = 950
+
+[asakusabashi-east-gate]
+src = "/assets/img/cc/asakusabashi-east-gate.webp"
+alt = "JR浅草橋駅の東口と駅前の交差点"
+caption = "JR浅草橋駅 東口"
+credit = "写真：Tokyo-Good／CC BY-SA 4.0（Wikimedia Commons）"
+licence = "CC BY-SA 4.0"
+licence_url = "https://creativecommons.org/licenses/by-sa/4.0"
+source = "https://commons.wikimedia.org/wiki/File:Asakusabashi-station-East-gate.jpg"
+width = 1400
+height = 1050
+
+[asakusabashi-crossing]
+src = "/assets/img/cc/asakusabashi-crossing.webp"
+alt = "早朝の浅草橋駅前の横断歩道"
+caption = "浅草橋駅前（2022年7月）"
+credit = "写真：inunami／CC BY 2.0（Wikimedia Commons）"
+licence = "CC BY 2.0"
+licence_url = "https://creativecommons.org/licenses/by/2.0"
+source = "https://commons.wikimedia.org/wiki/File:Asakusabashi_20220709054938_(52267434998).jpg"
+width = 1400
+height = 1050
+
+[kyugetsu-honten]
+src = "/assets/img/cc/kyugetsu-honten.webp"
+alt = "浅草橋にある久月本店のビル"
+caption = "久月 本店（2021年10月）"
+credit = "写真：遡雨祈胡／CC BY-SA 4.0（Wikimedia Commons）"
+licence = "CC BY-SA 4.0"
+licence_url = "https://creativecommons.org/licenses/by-sa/4.0"
+source = "https://commons.wikimedia.org/wiki/File:Kyugetsu_honten_202110.jpg"
+width = 875
+height = 1400
+
+[hina-exhibit]
+src = "/assets/img/cc/hina-exhibit.webp"
+alt = "浅草橋駅に展示された雛人形"
+caption = "浅草橋駅のひな人形の展示"
+credit = "写真：Bject／CC BY 4.0（Wikimedia Commons）"
+licence = "CC BY 4.0"
+licence_url = "https://creativecommons.org/licenses/by/4.0"
+source = "https://commons.wikimedia.org/wiki/File:Asakusabashi_Station_Hina_doll_exhibit_IMG_1021.jpg"
+width = 1400
+height = 934
+
+[yanagibashi-day]
+src = "/assets/img/cc/yanagibashi-day.webp"
+alt = "神田川の河口に架かる柳橋"
+caption = "柳橋（2019年7月）"
+credit = "写真：STA3816／CC BY-SA 4.0（Wikimedia Commons）"
+licence = "CC BY-SA 4.0"
+licence_url = "https://creativecommons.org/licenses/by-sa/4.0"
+source = "https://commons.wikimedia.org/wiki/File:Yanagibashi_Bridge_20190706.jpg"
+width = 1400
+height = 1050
+
+[yanagibashi-night]
+src = "/assets/img/cc/yanagibashi-night.webp"
+alt = "夜の柳橋と、神田川に並ぶ屋形船"
+caption = "夜の柳橋と屋形船"
+credit = "写真：T.Kiya from Japan／CC BY-SA 2.0（Wikimedia Commons）"
+licence = "CC BY-SA 2.0"
+licence_url = "https://creativecommons.org/licenses/by-sa/2.0"
+source = "https://commons.wikimedia.org/wiki/File:Yanagi-bash_bridge._%E6%9F%B3%E6%A9%8B_(14714842581).jpg"
+width = 1400
+height = 788
+
+[skytree-kuramaebashi]
+src = "/assets/img/cc/skytree-kuramaebashi.webp"
+alt = "蔵前橋から見た夜の隅田川と東京スカイツリー"
+caption = "蔵前橋から見た隅田川と東京スカイツリー"
+credit = "写真：T.Kiya from Japan／CC BY-SA 2.0（Wikimedia Commons）"
+licence = "CC BY-SA 2.0"
+licence_url = "https://creativecommons.org/licenses/by-sa/2.0"
+source = "https://commons.wikimedia.org/wiki/File:Tokyo_Skytree,_view_from_Kuramae-bashi_bridge_on_Sumida-gawa_river._(14555040147).jpg"
+width = 1400
+height = 788
+
+[kokugikan]
+src = "/assets/img/cc/kokugikan.webp"
+alt = "両国国技館の外観"
+caption = "両国国技館"
+credit = "写真：江戸村のとくぞう／CC BY-SA 4.0（Wikimedia Commons）"
+licence = "CC BY-SA 4.0"
+licence_url = "https://creativecommons.org/licenses/by-sa/4.0"
+source = "https://commons.wikimedia.org/wiki/File:Ryogoku_Kokugikan-1a.jpg"
+width = 1400
+height = 935
+
+[kaminarimon]
+src = "/assets/img/cc/kaminarimon.webp"
+alt = "浅草寺の雷門"
+caption = "浅草寺 雷門"
+credit = "写真：Daderot／Public domain（Wikimedia Commons）"
+licence = "Public domain"
+licence_url = ""
+source = "https://commons.wikimedia.org/wiki/File:Kaminarimon_(outer_gate),_Sensoji_Temple,_Akakusa,_Tokyo.jpg"
+width = 1400
+height = 1050
+
+[sensoji]
+src = "/assets/img/cc/sensoji.webp"
+alt = "浅草寺の本堂と境内"
+caption = "浅草寺 本堂（2023年）"
+credit = "写真：Akonnchiroll／CC0（Wikimedia Commons）"
+licence = "CC0"
+licence_url = "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+source = "https://commons.wikimedia.org/wiki/File:Sensoji_2023.jpg"
+width = 1400
+height = 1000
+
+[sanja-matsuri]
+src = "/assets/img/cc/sanja-matsuri.webp"
+alt = "三社祭で神輿を担ぐ人々"
+caption = "三社祭（2023年5月）"
+credit = "写真：江戸村のとくぞう／CC BY-SA 4.0（Wikimedia Commons）"
+licence = "CC BY-SA 4.0"
+licence_url = "https://creativecommons.org/licenses/by-sa/4.0"
+source = "https://commons.wikimedia.org/wiki/File:Sanja_Matsuri_20230520a.jpg"
+width = 1400
+height = 934
+
+[keikyu-haneda]
+src = "/assets/img/cc/keikyu-haneda.webp"
+alt = "京急線 羽田空港駅のホームに停まる電車"
+caption = "京急線 羽田空港駅"
+credit = "写真：7beachbum from Tsuruoka, Japan／CC BY 2.0（Wikimedia Commons）"
+licence = "CC BY 2.0"
+licence_url = "https://creativecommons.org/licenses/by/2.0"
+source = "https://commons.wikimedia.org/wiki/File:Keikyu_Haneda_Airport_Station_platform_door_20200729_(50174350428).jpg"
+width = 1400
+height = 788
+
+[keisei-3050]
+src = "/assets/img/cc/keisei-3050.webp"
+alt = "京成電鉄3050形の電車"
+caption = "京成3050形"
+credit = "写真：MaedaAkihiko／CC BY-SA 4.0（Wikimedia Commons）"
+licence = "CC BY-SA 4.0"
+licence_url = "https://creativecommons.org/licenses/by-sa/4.0"
+source = "https://commons.wikimedia.org/wiki/File:Keisei-Series3056.jpg"
+width = 1400
+height = 934
+
+[sobu-platform]
+src = "/assets/img/cc/sobu-platform.webp"
+alt = "JR浅草橋駅のホームに停まる総武線の電車"
+caption = "JR浅草橋駅のホーム（総武線）。宿は東口から徒歩2分 — 施設の外観写真ではありません"
+credit = "写真：Vitor Coelho Nisida from São Paulo, Brasil／Public domain（Wikimedia Commons）"
+licence = "Public domain"
+licence_url = ""
+source = "https://commons.wikimedia.org/wiki/File:JR_East_Asakusabashi_Station_Platform_20230227_(53028627280).jpg"
+width = 1400
+height = 933
+
+[ootoya-teishoku]
+src = "/assets/img/cc/ootoya-teishoku.webp"
+alt = "大戸屋の定食"
+caption = "大戸屋の定食（参考写真・別店舗）。この宿の朝食は館内の「大戸屋ごはん処」で提供"
+credit = "写真：毒島みるく／CC0（Wikimedia Commons）"
+licence = "CC0"
+licence_url = "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+source = "https://commons.wikimedia.org/wiki/File:Ootoya_Chicken-kaasan%27ni-teishoku.jpg"
+width = 1400
+height = 971

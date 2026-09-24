@@ -1,0 +1,44 @@
+# Publication config. Every value a release depends on lives here and nowhere else.
+# Environment variables of the same name (upper-cased, HM_ prefix) override these, so a
+# deploy can inject values without editing the file.
+#
+# `python build.py --release` refuses to build while a REQUIRED value is empty.
+
+name = "浅草橋ホテルガイド"
+name_en = "Asakusabashi Stay Guide"
+tagline = "浅草橋と東京東部の、ホテルとエリアのガイド"
+base_url = "https://hotelmercury.jp"
+lang = "ja"
+
+# REQUIRED. Who runs the site. Shown on /about/ and in Organization schema. Must be a real
+# legal or trading name — the site's trust rests on ownership being clear.
+publisher = ""                      # HM_PUBLISHER
+
+# REQUIRED. Contact form endpoint (a static-form service or a Cloudflare Worker URL). The form
+# is a plain HTML POST; no JavaScript, no backend on the box.
+contact_endpoint = ""               # HM_CONTACT_ENDPOINT
+
+[booking]
+# REQUIRED. Travelpayouts link for Hotel Mercury. If it contains {subid}, the helper
+# substitutes the attribution key (hm-<page>-<placement>), e.g.
+#   https://tp.media/r?marker=416241.{subid}&...   (marker-suffix SubID, as the widget uses)
+# A plain short link (booking.tpx.li/XXXX) is used exactly as given.
+url = ""                            # HM_BOOKING_URL
+
+# Booking.com search widget — the values the live shibuyahotel pages use, verified working.
+widget_trs = "533368"
+widget_marker = "416241"            # Jon's Travelpayouts marker
+widget_campaign_id = "84"
+widget_promo_id = "9240"
+
+# OPTIONAL. Travelpayouts hotel widget for Hotel Mercury (Booking.com hotel card) — the script
+# src from Travelpayouts → Tools → Widgets. Shows the property's licensed photos in
+# Booking's own frame. Empty = not shown.
+hotel_widget_src = ""                # HM_BOOKING_HOTEL_WIDGET_SRC
+
+[analytics]
+# Umami (Novatise self-hosted, tracker at analytics.novatise.com). Cookieless — /about/ says
+# so. Click tracking is declarative (data-umami-event-* on every CTA), no custom script.
+src = "https://analytics.novatise.com/script.js"
+website_id = ""                     # REQUIRED. HM_ANALYTICS_WEBSITE_ID
+domains = "hotelmercury.jp"         # keeps local previews out of the stats

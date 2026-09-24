@@ -1,0 +1,173 @@
+# Every source a page may cite. A page cites with {{cite <id>}} or indirectly through a
+# property fact. The gate fails if a cited id is missing here, or if an entry has no URL or
+# no retrieval date.
+#
+# kind: operator  = the property or its operator
+#       booking   = a booking provider's listing
+#       transit   = a railway operator
+#       organiser = the body that runs an event or a place
+#       press     = a news publication
+#       archive   = an earlier version of a site; treat as historical, never as current
+
+[tabist-mercury]
+title = "Tabist ホテルマーキュリー 浅草橋 — 施設ページ"
+publisher = "Tabist"
+url = "https://tabist.co.jp/h/B13HMRQ"
+retrieved = 2026-09-24
+kind = "booking"
+
+[mercury-official]
+title = "Tabist ホテルマーキュリー 公式サイト"
+publisher = "Tabist ホテルマーキュリー"
+url = "https://www.hotelmercury.info/"
+retrieved = 2026-09-24
+kind = "operator"
+
+[mercury-archive]
+title = "ホテルマーキュリー 旧施設案内（hotelmercury.jp 旧ページ）"
+publisher = "ホテルマーキュリー（旧運営時の案内）"
+url = "https://hotelmercury.jp/"
+retrieved = 2026-09-23
+kind = "archive"
+note = "現在の運営体制以前の案内。現行情報と一致するかは未確認。"
+
+[toei-a16-timetable]
+title = "浅草橋 平日：西馬込・羽田空港・京急線方面 時刻表"
+publisher = "東京都交通局"
+url = "https://www.kotsu.metro.tokyo.jp/subway/timetable/asakusa/A16SD.html"
+retrieved = 2026-09-24
+kind = "transit"
+
+[tokyo-np-asakusa-line]
+title = "羽田や成田へ直通 東京都営地下鉄浅草線、23日ダイヤ改正"
+publisher = "東京新聞デジタル"
+url = "https://www.tokyo-np.co.jp/article/365279"
+retrieved = 2026-09-24
+kind = "press"
+
+[keikyu]
+title = "京急電鉄 公式サイト"
+publisher = "京浜急行電鉄"
+url = "https://www.keikyu.co.jp/"
+retrieved = 2026-09-24
+kind = "transit"
+
+[keisei]
+title = "京成電鉄 公式サイト"
+publisher = "京成電鉄"
+url = "https://www.keisei.co.jp/"
+retrieved = 2026-09-24
+kind = "transit"
+
+[kyugetsu]
+title = "久月 公式サイト（浅草橋総本店）"
+publisher = "株式会社久月"
+url = "https://www.kyugetsu.com/"
+retrieved = 2026-09-24
+kind = "organiser"
+
+[yoshitoku]
+title = "吉徳 公式サイト"
+publisher = "株式会社吉徳"
+url = "https://www.yoshitoku.co.jp/"
+retrieved = 2026-09-24
+kind = "organiser"
+
+[shimojima]
+title = "シモジマ 公式サイト"
+publisher = "株式会社シモジマ"
+url = "https://www.shimojima.co.jp/"
+retrieved = 2026-09-24
+kind = "organiser"
+
+[sensoji]
+title = "浅草寺 公式サイト"
+publisher = "浅草寺"
+url = "https://www.senso-ji.jp/"
+retrieved = 2026-09-24
+kind = "organiser"
+
+[asakusajinja]
+title = "浅草神社（三社祭）公式サイト"
+publisher = "浅草神社"
+url = "https://www.asakusajinja.jp/"
+retrieved = 2026-09-24
+kind = "organiser"
+
+[sumidagawa-hanabi]
+title = "隅田川花火大会 公式Webサイト"
+publisher = "隅田川花火大会実行委員会"
+url = "https://www.sumidagawa-hanabi.com/"
+retrieved = 2026-09-24
+kind = "organiser"
+
+[taito-city]
+title = "台東区ホームページ"
+publisher = "台東区"
+url = "https://www.city.taito.lg.jp/"
+retrieved = 2026-09-24
+kind = "organiser"
+
+[tokyo-kensetsu]
+title = "東京都建設局（隅田川テラスの管理）"
+publisher = "東京都建設局"
+url = "https://www.kensetsu.metro.tokyo.lg.jp/"
+retrieved = 2026-09-24
+kind = "organiser"
+
+[osm]
+title = "OpenStreetMap（地図データ：駅・施設・橋・河川の位置）"
+publisher = "OpenStreetMap contributors (ODbL)"
+url = "https://www.openstreetmap.org/copyright"
+retrieved = 2026-09-24
+kind = "organiser"
+note = "徒歩の目安は、この座標から求めた直線距離を分速80mで割ったもの。実際の道のりはこれより長くなります。"
+
+[jreast]
+title = "JR東日本 駅・路線情報"
+publisher = "東日本旅客鉄道"
+url = "https://www.jreast.co.jp/"
+retrieved = 2026-09-24
+kind = "transit"
+
+[tokyometro]
+title = "東京メトロ 路線・駅情報"
+publisher = "東京地下鉄"
+url = "https://www.tokyometro.jp/"
+retrieved = 2026-09-24
+kind = "transit"
+
+[toei-subway]
+title = "都営地下鉄 路線・駅情報"
+publisher = "東京都交通局"
+url = "https://www.kotsu.metro.tokyo.jp/subway/"
+retrieved = 2026-09-24
+kind = "transit"
+
+[tobu]
+title = "東武鉄道 公式サイト"
+publisher = "東武鉄道"
+url = "https://www.tobu.co.jp/"
+retrieved = 2026-09-24
+kind = "transit"
+
+[tsukuba-express]
+title = "つくばエクスプレス 公式サイト"
+publisher = "首都圏新都市鉄道"
+url = "https://www.mir.co.jp/"
+retrieved = 2026-09-24
+kind = "transit"
+
+[sumo-kyokai]
+title = "日本相撲協会 公式サイト（両国国技館）"
+publisher = "日本相撲協会"
+url = "https://www.sumo.or.jp/"
+retrieved = 2026-09-24
+kind = "organiser"
+
+[chiyoda-city]
+title = "千代田区ホームページ"
+publisher = "千代田区"
+url = "https://www.city.chiyoda.lg.jp/"
+retrieved = 2026-09-24
+kind = "organiser"

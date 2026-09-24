@@ -1,0 +1,125 @@
+# Editorial backlog — ideas not yet published, scored with the model in hm/score.py.
+#
+# Factors are 1–5 editor estimates until search data is attached; set demand_basis to "gsc" or
+# "dataforseo" when a real number replaces the estimate. `blocked_by` is the reason an idea
+# cannot be written honestly yet (usually: needs on-foot research or verified prices).
+#
+# Rule: no idea may target the same query as a live page. Where one would, it is noted as a
+# section of that page instead of a new URL.
+#
+#   python build.py board   -> reports/editorial-board.html + .csv
+
+# ------------------------------------------------------------- A. stay decisions
+
+[[item]]
+title = "浅草橋で安く泊まる — 料金が動く日と、比べ方"
+url = "/hotel/budget/"
+intent = "commercial"
+target_query = "浅草橋 ホテル 安い"
+cluster = "hotels"
+monetisation = "ウィジェット"
+blocked_by = "料金の検証手段がない。価格を載せない構成で書けるか要検討（日付比較の方法論に寄せる）"
+score = { demand = 4, commercial = 5, proximity = 5, authority = 3, links = 3, differentiation = 2, seasonal = 1, competition = 5, difficulty = 3 }
+
+[[item]]
+title = "浅草橋で家族・3名以上で泊まる"
+url = "/hotel/family/"
+intent = "commercial"
+target_query = "浅草橋 ホテル 家族"
+cluster = "hotels"
+monetisation = "施設カード"
+blocked_by = "3名以上の部屋がある宿を1軒も取り上げていない。施設ガイドを増やしてから"
+score = { demand = 2, commercial = 4, proximity = 5, authority = 3, links = 2, differentiation = 3, seasonal = 2, competition = 3, difficulty = 3 }
+
+[[item]]
+title = "浅草橋駅近くのホテル"
+url = ""
+intent = "commercial"
+target_query = "浅草橋駅 近く ホテル"
+cluster = "hotels"
+monetisation = "—"
+blocked_by = "/hotel/（浅草橋 ホテル）と検索意図が重なる。施設ガイドが3軒を超えるまでは /hotel/ の一節として扱う"
+score = { demand = 3, commercial = 5, proximity = 5, authority = 3, links = 2, differentiation = 2, seasonal = 1, competition = 5, difficulty = 2 }
+
+# ------------------------------------------------------------- B. airport & transit
+
+[[item]]
+title = "成田空港へのアクセスがいい東京のエリア"
+url = "/access/narita-friendly-areas/"
+intent = "commercial"
+target_query = "成田空港 アクセス 便利 ホテル 東京"
+cluster = "transit"
+monetisation = "エリア比較＋施設カード"
+score = { demand = 4, commercial = 4, proximity = 3, authority = 3, links = 4, differentiation = 3, seasonal = 1, competition = 5, difficulty = 3 }
+
+[[item]]
+title = "羽田から乗り換えなしで着く東京のエリア"
+url = "/access/haneda-direct-areas/"
+intent = "commercial"
+target_query = "羽田空港 乗り換えなし ホテル"
+cluster = "transit"
+monetisation = "エリア比較＋施設カード"
+score = { demand = 3, commercial = 4, proximity = 3, authority = 3, links = 4, differentiation = 4, seasonal = 1, competition = 4, difficulty = 3 }
+
+[[item]]
+title = "浅草橋駅の出口と、改札の外での乗り換え"
+url = "/access/asakusabashi-station/"
+intent = "informational"
+target_query = "浅草橋駅 出口"
+cluster = "transit"
+monetisation = "記事末の施設モジュール"
+blocked_by = "出口・エレベーター位置の現地確認が必要（東京都交通局サイトは取得不可だった）"
+score = { demand = 3, commercial = 2, proximity = 3, authority = 4, links = 3, differentiation = 5, seasonal = 1, competition = 2, difficulty = 4 }
+
+# ------------------------------------------------------------- C. the district
+
+[[item]]
+title = "浅草橋のごはん — 朝・昼・夜"
+url = "/area/asakusabashi/food/"
+intent = "informational"
+target_query = "浅草橋 ランチ"
+cluster = "district"
+monetisation = "記事末の施設モジュール"
+blocked_by = "旧ビルドにあった記事は未確認の一般論だったため非公開。店を実際に回って書く"
+score = { demand = 4, commercial = 1, proximity = 2, authority = 4, links = 3, differentiation = 4, seasonal = 1, competition = 4, difficulty = 4 }
+
+[[item]]
+title = "浅草橋のビーズ・アクセサリーパーツの店"
+url = "/area/asakusabashi/beads/"
+intent = "informational"
+target_query = "浅草橋 ビーズ"
+cluster = "district"
+monetisation = "記事末の施設モジュール（荷物預かり）"
+blocked_by = "店舗の現地確認が必要"
+score = { demand = 3, commercial = 1, proximity = 2, authority = 4, links = 2, differentiation = 4, seasonal = 1, competition = 3, difficulty = 3 }
+
+[[item]]
+title = "柳橋と屋形船"
+url = "/area/asakusabashi/yanagibashi/"
+intent = "informational"
+target_query = "柳橋 屋形船"
+cluster = "district"
+monetisation = "記事末の施設モジュール"
+score = { demand = 2, commercial = 2, proximity = 2, authority = 4, links = 2, differentiation = 4, seasonal = 3, competition = 2, difficulty = 3 }
+
+[[item]]
+title = "蔵前エリアガイド"
+url = "/area/kuramae/"
+intent = "informational"
+target_query = "蔵前 どんな街"
+cluster = "district"
+monetisation = "浅草橋の宿への導線"
+blocked_by = "新しいエリアの開設。現地取材が前提"
+score = { demand = 3, commercial = 2, proximity = 2, authority = 3, links = 4, differentiation = 3, seasonal = 1, competition = 3, difficulty = 4 }
+
+# ------------------------------------------------------------- D. walks & itineraries
+
+[[item]]
+title = "鳥越祭"
+url = "/guide/torigoe-matsuri/"
+intent = "informational"
+target_query = "鳥越祭"
+cluster = "events"
+monetisation = "記事末の施設モジュール"
+score = { demand = 2, commercial = 2, proximity = 3, authority = 4, links = 2, differentiation = 3, seasonal = 5, competition = 3, difficulty = 2 }
+
