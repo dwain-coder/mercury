@@ -8,6 +8,7 @@ exactly one function.
 from __future__ import annotations
 
 import datetime as dt
+import hashlib
 import html
 import json
 import re
@@ -16,7 +17,13 @@ import tomllib
 
 from . import diagrams, geo, seo
 from .booking import Booking
-from .model import CONTENT, Config, Entity, Page, Source
+from .model import CONTENT, ROOT, Config, Entity, Page, Source
+
+
+def asset(url: str) -> str:
+    """/assets/... + ?v=<content hash>. The origin serves css/js with a 10-year Expires, so
+    a changed file must change URL or returning browsers keep the old one."""
+    return f"{url}?v={hashlib.sha256((ROOT / url.lstrip('/')).read_bytes()).hexdigest()[:10]}"
 
 CLUSTERS = {
     "hotels": "ホテル",
@@ -609,9 +616,9 @@ class Renderer:
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600;700&display=swap">
-<link rel="stylesheet" href="/assets/css/site.css">
-<link rel="stylesheet" href="/assets/css/atlas.css">
-<link rel="stylesheet" href="/assets/css/motion.css">
+<link rel="stylesheet" href="{asset("/assets/css/site.css")}">
+<link rel="stylesheet" href="{asset("/assets/css/atlas.css")}">
+<link rel="stylesheet" href="{asset("/assets/css/motion.css")}">
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 {schema}
 {analytics}
@@ -641,8 +648,8 @@ class Renderer:
   <p class="wrap foot__legal">© {dt.date.today().year} {html.escape(publisher)}　／　掲載している施設名・商標は各権利者に帰属します。当サイトはそれらの権利者と関係がありません。</p>
 </footer>
 {extra}
-<script src="/assets/js/site.js" defer></script>
-{"".join(f'<script src="{src}" defer></script>' for src in page.meta.get("scripts", []))}
+<script src="{asset("/assets/js/site.js")}" defer></script>
+{"".join(f'<script src="{asset(src)}" defer></script>' for src in page.meta.get("scripts", []))}
 </body>
 </html>
 """

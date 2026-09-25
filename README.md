@@ -98,8 +98,10 @@ itself remains the residual exposure (JP-DRP / 不正競争防止法 2条1項19�
 
 ## Deploy
 
-Static files: copy `dist/` (from `--release`) into the Hestia docroot for hotelmercury.jp on the
-static nginx template, behind Cloudflare. Old URLs from the scraped site: `/guide/` →
-`/hotel/hotel-mercury-asakusabashi/#guestroom`, `/restaurant/` → `…#restaurant`,
-`/areaguide/` → `/area/asakusabashi/`; 410 for `/page9596/`, `/_templates/*`,
-`/_administrator/*`. Use a Cloudflare redirect rule rather than box config.
+Production: Hestia user `hotelmercury`, static `no-php` template, docroot
+`/home/hotelmercury/web/hotelmercury.jp/public_html`, Cloudflare Origin cert, www -> apex.
+Redeploy from Git Bash: `bash deploy/push.sh`, then run the `sudo` line it prints on the box.
+Old URLs from the scraped site are handled in nginx
+(`/home/hotelmercury/conf/web/hotelmercury.jp/nginx.ssl.conf_legacy`): 301 `/areaguide/` ->
+`/area/`, `/restaurant/` -> `/hotel/hotel-mercury-asakusabashi/#restaurant`, `/contact/` ->
+`/about/`; 410 for `/page9596`, `/_templates/`, `/_administrator/`.
