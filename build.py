@@ -50,7 +50,7 @@ def compile_site(release: bool):
     return cfg, visible, pages, errs
 
 
-def write(cfg, pages):
+def write(cfg, pages, release=False):
     DIST.mkdir(exist_ok=True)
     for child in DIST.iterdir():        # clear contents, keep the dir (a preview server may hold it)
         shutil.rmtree(child) if child.is_dir() else child.unlink()
@@ -58,7 +58,9 @@ def write(cfg, pages):
         out = DIST / p.url.strip("/") / "index.html" if p.url != "/" else DIST / "index.html"
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(p.html, encoding="utf-8")
-    shutil.copytree(model.ROOT / "assets", DIST / "assets")
+    # Release never ships the stamped demo photos (unlicensed): not referenced, not fetchable.
+    shutil.copytree(model.ROOT / "assets", DIST / "assets",
+                    ignore=shutil.ignore_patterns("demo") if release else None)
     base = cfg.get("base_url").rstrip("/")
     (DIST / "sitemap.xml").write_text(seo.sitemap(base, pages), encoding="utf-8")
     (DIST / "robots.txt").write_text(seo.robots(base), encoding="utf-8")
@@ -91,7 +93,7 @@ def main():
     if a.cmd == "check":
         print(f"gate clean: {len(visible)} pages")
         return
-    write(cfg, visible)
+    write(cfg, visible, a.release)
     ctas = sum(p.html.count("data-hm-cta=") for p in visible)
     held = [p.id for p in all_pages if p not in visible]
     mode = "RELEASE" if a.release else "preview"
