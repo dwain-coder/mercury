@@ -94,8 +94,19 @@ def test_real_content_passes_gate():
 
 
 def test_release_requires_config_and_strips_placeholders():
-    _, _, _, errs = build.compile_site(release=True)
-    assert any("required for release" in e for e in errs)
+    from hm import model
+    req = model.Config.REQUIRED
+    model.Config.REQUIRED = {"_unset_for_test": "x"}
+    try:
+        _, _, _, errs = build.compile_site(release=True)
+        assert any("required for release" in e for e in errs)
+    finally:
+        model.Config.REQUIRED = req
+    # Live config (no deep link, no analytics) ships: CTAs use the widget fallback.
+    _, visible, _, errs = build.compile_site(release=True)
+    assert not errs, errs
+    home = next(p for p in visible if p.url == "/")
+    assert 'href="/hotel/#book"' in home.html and "data-website-id" not in home.html
     fixtures = {
         "HM_PUBLISHER": "テスト運営者",
         "HM_CONTACT_ENDPOINT": "https://forms.example.invalid/f/test",

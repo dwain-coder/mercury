@@ -12,14 +12,14 @@ lang = "ja"
 
 # REQUIRED. Who runs the site. Shown on /about/ and in Organization schema. Must be a real
 # legal or trading name — the site's trust rests on ownership being clear.
-publisher = ""                      # HM_PUBLISHER
+publisher = "NovaNow"                   # HM_PUBLISHER
 
-# REQUIRED. Contact form endpoint (a static-form service or a Cloudflare Worker URL). The form
+# UNUSED while /contact/ is draft. Contact form endpoint (a static-form service or a Cloudflare Worker URL). The form
 # is a plain HTML POST; no JavaScript, no backend on the box.
 contact_endpoint = ""               # HM_CONTACT_ENDPOINT
 
 [booking]
-# REQUIRED. Travelpayouts link for Hotel Mercury. If it contains {subid}, the helper
+# RECOMMENDED. Travelpayouts link for Hotel Mercury. If it contains {subid}, the helper
 # substitutes the attribution key (hm-<page>-<placement>), e.g.
 #   https://tp.media/r?marker=416241.{subid}&...   (marker-suffix SubID, as the widget uses)
 # A plain short link (booking.tpx.li/XXXX) is used exactly as given.
@@ -40,5 +40,5 @@ hotel_widget_src = ""                # HM_BOOKING_HOTEL_WIDGET_SRC
 # Umami (Novatise self-hosted, tracker at analytics.novatise.com). Cookieless — /about/ says
 # so. Click tracking is declarative (data-umami-event-* on every CTA), no custom script.
 src = "https://analytics.novatise.com/script.js"
-website_id = ""                     # REQUIRED. HM_ANALYTICS_WEBSITE_ID
+website_id = ""                     # OPTIONAL (no analytics by operator choice). HM_ANALYTICS_WEBSITE_ID
 domains = "hotelmercury.jp"         # keeps local previews out of the stats

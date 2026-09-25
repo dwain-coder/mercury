@@ -79,8 +79,8 @@ class Booking:
     # ---- components
 
     # Where a CTA points when no deep link is configured yet: the Booking.com search widget
-    # on the hotel hub, which is live and carries the same marker. Preview only — the gate
-    # bans data-hm-unset, so a release build cannot ship one.
+    # on the hotel hub, which is live and carries the same marker. A release may ship it
+    # (operator, 2026-09-25); preview still tags it data-hm-unset so the banner shows it.
     UNSET_HREF = "/hotel/#book"
 
     def button(self, page, placement: str, label: str, prop: str | None = "hotel-mercury",
@@ -90,7 +90,7 @@ class Booking:
         # The fallback stays in the same tab (it is an in-page anchor, not an outbound link),
         # but keeps rel="sponsored" so every CTA on the site is labelled identically.
         link = ('target="_blank" rel="sponsored noopener"' if href
-                else 'rel="sponsored noopener" data-hm-unset="1"')
+                else 'rel="sponsored noopener"' + (' data-hm-unset="1"' if self.preview else ""))
         href = href or self.UNSET_HREF
         return (
             f'<a class="{cls}" href="{html.escape(href)}" '

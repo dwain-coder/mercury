@@ -49,8 +49,7 @@ FOOT_NAV = [
     ("ガイド", [("/hotel/", "浅草橋のホテルの選び方"), ("/area/asakusabashi/", "浅草橋エリアガイド"),
                 ("/access/", "浅草橋へのアクセス"), ("/guide/", "旅の実用ガイド"), ("/blog/", "読みもの一覧")]),
     ("このサイトについて", [("/about/", "運営と編集方針"), ("/about/#ads", "広告・アフィリエイトについて"),
-                     ("/about/#corrections", "訂正の方針"), ("/about/#sources", "出典と情報の扱い"),
-                     ("/contact/", "お問い合わせ")]),
+                     ("/about/#corrections", "訂正の方針"), ("/about/#sources", "出典と情報の扱い")]),
 ]
 
 

@@ -42,14 +42,11 @@ class Config:
     # Values a release cannot ship without. Each maps to one line in site.toml.
     REQUIRED = {
         "publisher": "運営者名（About と Organization schema）",
-        "contact_endpoint": "お問い合わせフォームの送信先",
-        "booking.url": "Travelpayouts の予約リンク",
-        # Required, not optional: /about/ tells readers how the site measures traffic, and
-        # every CTA is instrumented. Shipping without it would make that statement untrue
-        # and leave the growth loop blind.
-        "analytics.website_id": "Umami のサイトID（閲覧・クリック計測）",
     }
-    RECOMMENDED = {}
+    # Operator decisions 2026-09-25: booking.url unset = CTAs fall back to the on-page search
+    # widget (same marker); no analytics (re-add the /about/ measurement paragraph if a
+    # website_id is ever set); contact page unpublished, so contact_endpoint is unused.
+    RECOMMENDED = {"booking.url": "Travelpayouts の予約リンク（未設定なら検索ウィジェットへ）"}
 
     def missing(self, which: dict) -> list[str]:
         return [k for k in which if not self.get(k)]
